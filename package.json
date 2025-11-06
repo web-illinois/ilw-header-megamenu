@@ -1,7 +1,7 @@
 {
-    "name": "@illinois-toolkit/<%= name %>",
+    "name": "@illinois-toolkit/ilw-header-megamenu",
     "description": "One paragraph description of the component.",
-    "repository": "github:<%= repository %>",
+    "repository": "github:web-illinois/ilw-header-megamenu",
     "private": false,
     "license": "MIT",
     "version": "0.0.1",
@@ -13,16 +13,16 @@
     ],
     "exports": {
         ".": {
-            "import": "./dist/<%= name %>.js",
-            "require": "./dist/<%= name %>.cjs",
-            "default": "./dist/<%= name %>.js"
+            "import": "./dist/ilw-header-megamenu.js",
+            "require": "./dist/ilw-header-megamenu.cjs",
+            "default": "./dist/ilw-header-megamenu.js"
         },
-        "./<%= name %>.css": {
-            "import": "./dist/<%= name %>.css"
+        "./ilw-header-megamenu.css": {
+            "import": "./dist/ilw-header-megamenu.css"
         }
     },
-    "main": "./dist/<%= name %>.js",
-    "module": "./dist/<%= name %>.js",
+    "main": "./dist/ilw-header-megamenu.js",
+    "module": "./dist/ilw-header-megamenu.js",
     "scripts": {
         "dev": "vite",
         "build": "tsc --noEmit && vite build --config vite.transpile.config.ts --emptyOutDir && vite build --config vite.build.config.ts --emptyOutDir",

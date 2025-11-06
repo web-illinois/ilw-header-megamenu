@@ -6,9 +6,9 @@ export default defineConfig({
     build: {
         outDir: "../dist/cdn",
         lib: {
-            name: "<%= name %>",
-            entry: "<%= name %>.ts",
-            fileName: "<%= name %>",
+            name: "ilw-header-megamenu",
+            entry: "ilw-header-megamenu.ts",
+            fileName: "ilw-header-megamenu",
             formats: ["es"],
         },
         rollupOptions: {
