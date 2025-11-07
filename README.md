@@ -6,51 +6,90 @@ Links: **[ilw-header-megamenu in Builder](https://builder3.toolkit.illinois.edu/
 
 ## Overview
 
-An Illinois Mega Menu utilizes the standard design of the header menu, including the ability to have a link and toggle dropdown or just a static label with toggle dropdown. The difference will be the dropdown takes up the full-width of the container maxing out at 1240px, exceeding the length of the main nav bar items.
+An Illinois Mega Menu utilizes the standard design of the header menu, including the ability to have a link and toggle dropdown or just a static label with toggle dropdown. The difference will be the dropdown takes up the full-width of the container maxing out at 1240px, exceeding the length of the main nav bar items. Each dropdown section has a maximum of 4 columns, evenly spaced with a diving bar between each.
 
-Each dropdown section has a maximum of 4 columns, evenly spaced with a diving bar between each. Within each column you can perscribe a lists of links, one level of nested list links, decorative images or buttons. By default each column has a maximum of 5 list items. If you choose to make the columns distinct you can have more items, but if all of the items apply to the section in no particular order they will be split into 5 equal columns. See about and admissions dropdown in this example: [illinois.edu](https://illinois.edu/)
+The mega menu is not suited for more than 1 layer of nested lists, if you require more, use the original ilw-header-menu with nested ilw-header-menu-sections instead (flyout menu).
 
-The mega menu is not suited for more than 1 layer of nested lists, if you require more, use a flyout menu instead.
+---------
+
+The ilw-header-megamenu should contain an unordered list. Each list item can contain one of three items:
+
+- a simple link or button (`<a>` or `<button>`)
+- an <ilw-header-megamenu-section> that contains a span and at least one unordered list of links. The span should contain `slot="label"`.
+- an <ilw-header-megamenu-section linked="true"> that contains an anchor and at least one unordered list of links. The anchor should contain `slot="link"`.
+
+Within each `ilw-header-megamenu-section` or `ilw-header-megamenu-section linked="true"` you can choose a combination of:
+- 1-4 unordered list of links, with up to one layer of nested links. If only one list is added and it has more than 5 items, the remaining list items will be evenly divided between the remaining columns.
+- a decorative image
+- a `<div>` containing a paragraph element and a call to action (`<a>` or `<button>`). The div should contain `slot="action"`.
+
+## Attributes
+
+`width`: the numeric pixel width where it will change to the hamburger menu. This is defaulted to 990, but may be changed if you have a ridiculous menu.
+`compact`: a boolean value that will force the menu to be a hamburger menu. Before using this option, see Accessibility Notes and Use for more information.
+`span-2`: this will allow a secondary item to span 2 columns
+`span-3`: this will allow a secondary item to span 3 columns
+
 
 ## Code Examples
 
 ```html
 <ilw-header-megamenu slot="navigation">
     <ul>
-      <li>
-      <a class="mega-menu__link" href="https://illinois.edu/about/">
-      About</a>
-      <button aria-haspopup="true" aria-expanded="true" aria-controls="About-menu" aria-label="Toggle About submenu"></button>
-        <ilw-header-megamenu-section>
-          <span slot="label">Start Here</span>
+    <li>
+      <ilw-header-menu-section>
+          <span slot="label">Basic links, no groups evenly divided</span>
           <ul>
-            <li><a href="/getting_started/index.html">Getting Started</a></li>
-            <li><a href="/create_page/index.html">Create a Page</a></li>
-            <li><a href="/upgrade/index.html">Upgrade from V2</a></li>
+            <li><a href="/">Undergrad Admissions</a></li>
+            <li><a href="/">Graduate Admissions</a></li>
+            <li><a href="/">International Admissions</a></li>
+            <li><a href="/">Degrees</a></li>
+            <li><a href="/">Certificates</a></li>
+            <li><a href="/">Online Programs</a></li>
+            <li><a href="/">Research Focus Areas</a></li>
+            <li><a href="/">Find a mentor</a></li>
+            <li><a href="/">Student Handbook</a></li>
+            <li><a href="/">Career Center</a></li>
           </ul>
-        </ilw-header-megamenu-section>
-      </li>
+        </ilw-header-menu-section>
+       </li>
       <li>
-        <ilw-header-megamenu-section>
-          <span slot="label">Information</span>
+        <ilw-header-menu-section>
+          <span slot="label">Four columns, destinct groups with some nesting</span>
           <ul>
-            <li><a href="/philosophy/index.html">Philosophy</a></li>
-            <li><a href="/links/index.html">Helpful Links</a></li>
-            <li><a href="/github/index.html">Organization and Github</a></li>
+            <li><a href="/">Undergrad Admissions</a>
+                  <ul>
+                    <li><a href="/">Apply</a></li>
+                    <li><a href="/">Majors</a></li>
+                    <li><a href="/">Cost and Aid</a></li>
+                  </ul>
+            </li>
+            <li><a href="/">Graduate Admissions</a>
+                    <ul>
+                    <li><a href="/">Apply</a></li>
+                    <li><a href="/">Majors</a></li>
+                    <li><a href="/">Cost and Aid</a></li>
+                  </ul>
+            </li>
+            <li><a href="/">International Admissions</a></li>
           </ul>
-        </ilw-header-megamenu-section>
-      </li>
-      <li>
-        <a href="/demo/index.html">Demo Pages</a>
-      </li>
-      <li>
-        <a href="/components_toc/index.html">Components</a>
-      </li>
-      <li>
-        <a href="/preview/index.html">Component Preview</a>
+          <ul>
+            <li><a href="/">Degrees</a></li>
+            <li><a href="/">Certificates</a></li>
+            <li><a href="/">Online Programs</a></li>
+          </ul>
+          <ul>
+            <li><a href="/">Research Focus Areas</a></li>
+            <li><a href="/">Find a mentor</a></li>
+          </ul>
+          <ul>
+            <li><a href="/">Student Handbook</a></li>
+            <li><a href="/">Career Center</a></li>
+          </ul>
+        </ilw-header-menu-section>
       </li>
     </ul>
-</ilw-header-megamenu>
+  </ilw-header-menu>
 ```
 
 ## Accessibility Notes and Use
@@ -68,6 +107,7 @@ Note from Keith:
 ### ARIA
 - Each toggle button will get the attributes: `aria-haspopup="true"`, `aria-expanded="true"`, `aria-controls="parent-name-menu"` and `aria-label="Toggle parent-name submenu`. The SVG will get `aria-hidden="true"`
 - Each section will get a unique id and label, example: `id="parent-name-menu"` and `aria-label="About submenu"`
+- Items with contextual information
 
 ## External References
 
