@@ -4,8 +4,8 @@
     "github": "https://github.com/web-illinois/ilw-header-megamenu/",
     "type": "web component",
     "element-name": "ilw-header-megamenu",
-    "description": "Description for builder.",
-    "purpose": "Imperative mood purpose for builder homepage.",
+    "description": "Mega Menu for the top of the page.",
+    "purpose": "Build a mega menu navigation",
     "toolkit-version": "",
     "production-version": "",
     "development-version": "1.0-alpha"

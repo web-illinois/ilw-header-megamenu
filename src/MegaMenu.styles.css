@@ -1,0 +1,37 @@
+/* Styleable variables are in the base layer so they can be overridden easily */
+@layer base {
+    :host {
+      --ilw-header-megamenu--link-color: var(--il-blue);
+      --ilw-header-megamenu--link-color--hover: var(--il-altgeld);
+      --ilw-header-megamenu--link-background: transparent;
+      --ilw-header-megamenu--link-background--hover: white;
+      --ilw-header-megamenu--link-background--focus: var(--il-industrial-lighter-4);
+      --ilw-header-megamenu--link-background--sub--focus: var(--il-industrial-lighter-4);
+      --ilw-header-megamenu--link-border-bottom-highlight: 4px solid transparent;
+      --ilw-header-megamenu--link-border-bottom-highlight--hover: 4px solid var(--il-orange);
+      --ilw-header-megamenu--link-border-bottom-highlight--focus: 4px solid var(--il-blue);
+      --ilw-header-megamenu--link-border-left-highlight: none;
+      --ilw-header-megamenu--link-border-left-highlight--focus: none;
+      --ilw-header-megamenu--background: #E8E9EB;
+      --ilw-header-megamenu--flex-direction: row;
+      --ilw-header-megamenu--items--position: absolute;
+      --ilw-header-megamenu--items--border: 1px solid rgb(0, 0, 0, .01);
+      --ilw-header-megamenu--items--box-shadow: 0 0 4px #00000040;
+      --ilw-header-megamenu--items--width: 250px;
+      --ilw-header-megamenu--items--top: initial;
+      --ilw-header-megamenu--items--left: 0;
+      --ilw-header-megamenu--font: 700 16px/22px var(--il-font-sans);
+      --ilw-header-megamenu--grid-template-columns: auto auto;
+      --ilw-header-megamenu-section--grid-template-columns--header: auto 24px;
+      --ilw-header-megamenu-section--anchor--padding: 6px 20px;
+      --ilw-header-megamenu-section--anchor--border: none;
+      --ilw-header-megamenu-section--anchor--text-indent: 0;
+      --ilw-header-megamenu-section--transform: none;
+      --ilw-header-megamenu-section--transform--selected: rotate(180deg);
+    }
+}
+
+div.parent.full {
+  padding-top: 6px;
+  margin: 0 calc(var(--ilw-margin--side) - 9px);
+}

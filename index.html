@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Header Megamenu Component</title>
+    <link rel="stylesheet" href="https://cdn.brand.illinois.edu/illinois.css">
+    <link rel="stylesheet" href="https://dev.toolkit.illinois.edu/ilw-global/3.0.0-alpha/ilw-global.css">
+
+
+    <script type="module" src="src/ilw-header-megamenu.ts"></script>
+       <script>
+        document.addEventListener("DOMContentLoaded", function(event) {
+          const params = new URLSearchParams(window.location.search);
+          document.querySelectorAll("ilw-header-megamenu").forEach(component => {
+            if (params.has('compact')) {
+              component.setAttribute('compact', 'true');
+            }
+          });
+        });
+    </script>
+</head>
+
+<body style="margin: 0; padding: 0;">
+ 
+  <ilw-header-megamenu slot="navigation">
+    <ul>
+    <li>
+      <ilw-header-megamenu-section linked="true">
+          <a slot="link" href="/">Basic links, no groups evenly divided</a>
+          <ul>
+            <li><a href="/">Undergrad Admissions</a></li>
+            <li><a href="/">Graduate Admissions</a></li>
+            <li><a href="/">International Admissions</a></li>
+            <li><a href="/">Degrees</a></li>
+            <li><a href="/">Certificates</a></li>
+            <li><a href="/">Online Programs</a></li>
+            <li><a href="/">Research Focus Areas</a></li>
+            <li><a href="/">Find a mentor</a></li>
+            <li><a href="/">Student Handbook</a></li>
+            <li><a href="/">Career Center</a></li>
+          </ul>
+        </ilw-header-megamenu-section>
+       </li>
+      <li>
+        <ilw-header-megamenu-section>
+          <span slot="label">Four columns, destinct groups with some nesting</span>
+          <ul>
+            <li><a href="/">Undergrad Admissions</a>
+                  <ul>
+                    <li><a href="/">Apply</a></li>
+                    <li><a href="/">Majors</a></li>
+                    <li><a href="/">Cost and Aid</a></li>
+                  </ul>
+            </li>
+            <li><a href="/">Graduate Admissions</a>
+                    <ul>
+                    <li><a href="/">Apply</a></li>
+                    <li><a href="/">Majors</a></li>
+                    <li><a href="/">Cost and Aid</a></li>
+                  </ul>
+            </li>
+            <li><a href="/">International Admissions</a></li>
+          </ul>
+          <ul>
+            <li><a href="/">Degrees</a></li>
+            <li><a href="/">Certificates</a></li>
+            <li><a href="/">Online Programs</a></li>
+          </ul>
+          <ul>
+            <li><a href="/">Research Focus Areas</a></li>
+            <li><a href="/">Find a mentor</a></li>
+          </ul>
+          <ul>
+            <li><a href="/">Student Handbook</a></li>
+            <li><a href="/">Career Center</a></li>
+          </ul>
+        </ilw-header-megamenu-section>
+      </li>
+      <li>
+          <ilw-header-megamenu-section>
+              <span slot="label">Basic links, decorative image aligned right</span>
+              <ul>
+                <li><a href="/">Undergrad Admissions</a></li>
+                <li><a href="/">Graduate Admissions</a></li>
+                <li><a href="/">International Admissions</a></li>
+                <li><a href="/">Degrees</a></li>
+                <li><a href="/">Certificates</a></li>
+              </ul>
+              <img data-span-2="true" start-end="true" src="image.jpg" alt="">
+            </ilw-header-megamenu-section>
+      </li>
+        <li>
+          <ilw-header-megamenu-section>
+              <span slot="label">Basic links, image and call to action</span>
+              <ul>
+                <li><a href="/">Undergrad Admissions</a></li>
+                <li><a href="/">Graduate Admissions</a></li>
+                <li><a href="/">International Admissions</a></li>
+                <li><a href="/">Degrees</a></li>
+                <li><a href="/">Certificates</a></li>
+              </ul>
+              <img data-span-2="true" src="image.jpg" alt="">
+              <div slot="action">
+                <p> Prospective students </p>
+                <button> Visit today </button>
+              </div>
+            </ilw-header-megamenu-section>
+      </li>
+    </ul>
+ <ilw-header-megamenu>
+
+</body>
+
+</html>

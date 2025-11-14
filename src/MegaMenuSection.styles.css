@@ -1,0 +1,167 @@
+#items {
+    display: none;
+}
+
+#items.expanded {
+  all: initial;
+  box-sizing: border-box;
+  flex-direction: column;
+  border: var(--ilw-header-megamenu--items--border);
+  box-shadow: var(--ilw-header-megamenu--items--box-shadow);
+  width: var(--ilw-header-megamenu--items--width);
+  position: var(--ilw-header-megamenu--items--position);
+  display: flex;
+  left: var(--ilw-header-megamenu--items--left);
+  top: var(--ilw-header-megamenu--items--top);
+  z-index: 100;
+  background: white;
+}
+
+#items.expanded.right {
+  right: var(--ilw-header-megamenu--items--left);
+  left: initial;
+}
+
+.parent {
+  height: 100%;
+  position: relative;
+}
+
+button, .link {
+    all: initial;
+    box-sizing: border-box;
+    display: block;
+    position: relative;
+    padding: var(--ilw-header-megamenu-section--anchor--padding);
+    font: var(--ilw-header-megamenu--font);
+    background: var(--ilw-header-megamenu--link-background);
+    color: var(--ilw-header-megamenu--link-color);
+    fill: var(--ilw-header-megamenu--link-color);
+    border-width: 0 0 3px 0;
+    border-style: solid;
+    border-color: transparent;
+    outline: 0;
+    cursor: pointer;
+    height: 100%;
+    width: 100%;
+    border-left: var(--ilw-header-megamenu--link-border-left-highlight);
+    border-bottom: var(--ilw-header-megamenu--link-border-bottom-highlight);
+    
+    svg {
+      padding: 2px;
+      transform: var(--ilw-header-megamenu-section--transform);
+    }
+
+    &.current {
+      border-color: var(--il-blue);
+    }
+
+    &:hover {
+      background: var(--ilw-header-megamenu--link-background--hover);
+      border-bottom: var(--ilw-header-megamenu--link-border-bottom-highlight--hover);
+      border-left: var(--ilw-header-megamenu--link-border-left-highlight--hover);
+      color: var(--ilw-header-megamenu--link-color--hover);
+      fill: var(--ilw-header-megamenu--link-color--hover);
+      text-decoration: underline;
+
+      svg {
+        outline: 2px dotted var(--il-altgeld);
+      }
+    }
+
+    &:focus {
+      background: var(--ilw-header-megamenu--link-background--focus);
+      border-bottom: var(--ilw-header-megamenu--link-border-bottom-highlight--focus);
+      border-left: var(--ilw-header-megamenu--link-border-left-highlight--focus);
+    }
+}
+
+button[aria-expanded="true"] { 
+  text-decoration: underline;
+  color: var(--ilw-header-megamenu--link-color--hover);
+  background: var(--ilw-header-megamenu--link-background--hover);
+
+  &:focus {
+    background: var(--ilw-header-megamenu--link-background--hover);
+    border-bottom: var(--ilw-header-megamenu--link-border-bottom-highlight--hover);
+  }
+
+  svg {
+    fill: var(--ilw-header-megamenu--link-color--hover);
+    transform: var(--ilw-header-megamenu-section--transform--selected);
+    background: var(--ilw-header-megamenu--link-background--hover);
+
+    &:focus {
+      background: var(--ilw-header-megamenu--link-background--hover);
+    }
+  }
+}
+
+.header {
+    position: relative;
+    display: grid;
+    grid-template-columns: var(--ilw-header-megamenu-section--grid-template-columns--header);
+    grid-template-areas: "label icon";
+    grid-gap: 4px;
+  }
+
+.header-link.current button {
+    border-color: var(--il-blue);
+}
+
+.header-link {
+    position: relative;
+    display: grid;
+    grid-template-columns: var(--ilw-header-megamenu--grid-template-columns);
+    grid-template-areas: "label icon";
+    align-items: center;
+    height: 100%;
+
+    &.highlighted {
+        background: var(--ilw-header-megamenu--link-background--hover);
+    }
+
+    & .link {
+        padding: 6px 0px 6px 20px;
+      }
+    & button {
+        padding: 6px 20px 6px 8px;
+    }
+}
+
+.label, .link {
+  box-sizing: border-box;
+  display: block;
+  position: relative;
+  grid-area: label;
+}
+.icon, .header-link button {
+  align-self: center;
+  align-items: center;
+  justify-content: center;
+  grid-area: icon;
+}
+.icon {
+  display: flex;
+}
+.arrow {
+  display: block;
+  height: 14px;
+  width: 14px;
+}
+
+.submenu.parent button:hover .label ::slotted(span[slot="label"]), .submenu.parent button:focus .label ::slotted(span[slot="label"])  {
+  text-decoration: underline;
+}
+
+.menu.parent .header-link.highlighted button, .menu.parent .header-link.highlighted ::slotted(a[slot="link"]) {
+  border-bottom: var(--ilw-header-megamenu--link-border-bottom-highlight--focus) !important;
+}
+
+.submenu.parent button.arrow-only:hover, .submenu.parent button.arrow-only:focus {
+  border-left: 4px solid transparent !important;
+}
+
+.menu.parent .compact button.arrow-only:hover, .menu.parent .compact button.arrow-only:focus {
+  border-left: 4px solid transparent !important;
+}

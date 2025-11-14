@@ -13,8 +13,9 @@ export default defineConfig({
         },
         rollupOptions: {
             output: {
-                assetFileNames: () => {
-                    return "[name][extname]";
+                 assetFileNames: (chunkInfo) => {
+                    if (chunkInfo.name === "style.css") return "ilw-header-megamenu.css";
+                    return "assets/[name]-[hash][extname]"; // vite default
                 },
             },
         },

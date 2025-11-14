@@ -16,7 +16,8 @@ export default defineConfig({
             external: [/^@?lit/, /^@illinois-toolkit/],
             output: {
                 assetFileNames: (chunkInfo) => {
-                    return "[name][extname]"; // vite default
+                    if (chunkInfo.name === "style.css") return "ilw-header-megamenu.css";
+                    return "assets/[name]-[hash][extname]"; // vite default
                 },
             },
         },
