@@ -17,9 +17,9 @@
       --ilw-header-megamenu--items--position: absolute;
       --ilw-header-megamenu--items--border: 1px solid rgb(0, 0, 0, .01);
       --ilw-header-megamenu--items--box-shadow: 0 0 4px #00000040;
-      --ilw-header-megamenu--items--width: 250px;
+      --ilw-header-megamenu--items--width: 1280px;
       --ilw-header-megamenu--items--top: initial;
-      --ilw-header-megamenu--items--left: 0;
+      --ilw-header-megamenu--items--left: calc(var(--ilw-margin--side) - 39px);
       --ilw-header-megamenu--font: 700 16px/22px var(--il-font-sans);
       --ilw-header-megamenu--grid-template-columns: auto auto;
       --ilw-header-megamenu-section--grid-template-columns--header: auto 24px;

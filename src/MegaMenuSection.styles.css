@@ -9,23 +9,19 @@
   border: var(--ilw-header-megamenu--items--border);
   box-shadow: var(--ilw-header-megamenu--items--box-shadow);
   width: var(--ilw-header-megamenu--items--width);
+  max-width: 100vw + 39px;
   position: var(--ilw-header-megamenu--items--position);
-  display: flex;
+  display: grid;
   left: var(--ilw-header-megamenu--items--left);
   top: var(--ilw-header-megamenu--items--top);
   z-index: 100;
   background: white;
 }
 
-#items.expanded.right {
-  right: var(--ilw-header-megamenu--items--left);
-  left: initial;
-}
-
 .parent {
   height: 100%;
-  position: relative;
 }
+
 
 button, .link {
     all: initial;

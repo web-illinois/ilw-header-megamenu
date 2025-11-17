@@ -51,7 +51,7 @@
             ]
         },
         {
-            "name": "start-end",
+            "name": "startend",
             "description": "Whether or not the item starts in the right-most column.",
             "depreciated": false,
             "values": [
