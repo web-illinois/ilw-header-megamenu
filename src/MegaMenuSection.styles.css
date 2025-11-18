@@ -42,7 +42,6 @@ button, .link {
     cursor: pointer;
     height: 100%;
     width: 100%;
-    /* border-left: var(--ilw-header-megamenu--link-border-left-highlight); */
     border-bottom: var(--ilw-header-megamenu--link-border-bottom-highlight);
     
     svg {
@@ -57,7 +56,6 @@ button, .link {
     &:hover {
       background: var(--ilw-header-megamenu--link-background--hover);
       border-bottom: var(--ilw-header-megamenu--link-border-bottom-highlight--hover);
-      /* border-left: var(--ilw-header-megamenu--link-border-left-highlight--hover); */
       color: var(--ilw-header-megamenu--link-color--hover);
       fill: var(--ilw-header-megamenu--link-color--hover);
       text-decoration: underline;

@@ -138,7 +138,7 @@ export default class MegaMenuSection extends LitElement {
     const section = activeElement.closest('ILW-HEADER-MEGAMENU-SECTION');
     if (!section) return;
 
-    const links = Array.from(section.querySelectorAll('a')) as HTMLElement[];
+    const links = Array.from(section.querySelectorAll('a, button')) as HTMLElement[];
     const currentIndex = links.indexOf(activeElement);
 
     let nextIndex = currentIndex + 1;
@@ -159,7 +159,7 @@ export default class MegaMenuSection extends LitElement {
         const section = activeElement.closest('ILW-HEADER-MEGAMENU-SECTION');
         if (!section) return;
 
-        const links = Array.from(section.querySelectorAll('a')) as HTMLElement[];
+        const links = Array.from(section.querySelectorAll('a, button')) as HTMLElement[];
         const currentIndex = links.indexOf(activeElement);
 
         let prevIndex = currentIndex - 1;
@@ -208,6 +208,21 @@ export default class MegaMenuSection extends LitElement {
                 </button>
             </div>
         `;
+
+        const actionSpan = this.querySelector('span[slot="action"]');
+        let actionId: string | null = null;
+        if (actionSpan) {
+            const pText = actionSpan.querySelector('p')?.textContent?.trim() || '';
+            let link = actionSpan.querySelector('a, button');
+            if (pText) {
+            actionId = `action-${pText.replace(/\s+/g, '-')}`; // normalize spaces
+            actionSpan.id = actionId;
+            }  
+            if (link && actionId) {
+                link.setAttribute('aria-labelledby', actionId);
+            }
+        }
+        
 
         var withoutLink = html`
             <button class="${this.current ? "current" : ""}" @click=${this.handleToggleClick.bind(this)} aria-expanded=${this.expanded ? 'true' : 'false'} aria-controls="items">
