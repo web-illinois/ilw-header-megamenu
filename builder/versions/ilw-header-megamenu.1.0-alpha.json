@@ -40,24 +40,6 @@
                 "",
                 "990"
             ]
-        },
-        {
-            "name": "data-span",
-            "description": "The item spans columns. Must be a number. Default is 1.",
-            "depreciated": false,
-            "values": [
-                "",
-                "1"
-            ]
-        },
-        {
-            "name": "startend",
-            "description": "Whether or not the item starts in the right-most column.",
-            "depreciated": false,
-            "values": [
-                "",
-                "true"
-            ]
         }
     ],
     "classes-fixed": [],

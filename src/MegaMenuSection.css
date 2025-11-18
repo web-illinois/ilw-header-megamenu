@@ -47,8 +47,6 @@ ilw-header-megamenu-section[linked][aria-current="page"] a[slot="link"] {
     }
 }
 
-
-
 ilw-header-megamenu-section {
       
   img{
@@ -86,12 +84,9 @@ ilw-header-megamenu-section {
         justify-self: right;
     }
 
-    span{
+    span[slot="action"]{
         text-align: center;
         margin: auto;
-    }
-
-     span > *{
         font-size: 21px;
         font-weight: bold;
         font-family: "Source Sans", sans-serif;
