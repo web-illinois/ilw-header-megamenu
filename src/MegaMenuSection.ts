@@ -126,62 +126,50 @@ export default class MegaMenuSection extends LitElement {
         }
     }
 
+
     moveToNextItem() {
-        let newNode: Element | null = null;
-        if (!this.expanded && !this.isEmbedded()) {
-            this.expanded = true;
-        }
-        let activeElement = document.activeElement;
-        if (activeElement != null) {
-            if (activeElement.tagName === 'ILW-HEADER-MEGAMENU-SECTION' && (!this.isEmbedded() || this.expanded)) {
-                newNode = activeElement.querySelector('li');
-                if (newNode != null) {
-                    newNode = newNode.children[0];
-                }
-            } else {
-                newNode = activeElement.closest('li');
-                if (newNode != null) {
-                    newNode = newNode.nextElementSibling;
-                }
-                if (newNode != null) {
-                    newNode = newNode.children[0];
-                }
-            }
-            if (newNode != null) {
-                if (newNode.tagName === 'ILW-HEADER-MEGAMENU-SECTION') {
-                    (newNode as MegaMenuSection).setFocus();
-                } else {
-                    (newNode as HTMLElement).focus();
-                }
-            }
-        }
+    if (!this.expanded && !this.isEmbedded()) {
+        this.expanded = true;
     }
 
+    const activeElement = document.activeElement as HTMLElement | null;
+    if (!activeElement) return;
+
+    const section = activeElement.closest('ILW-HEADER-MEGAMENU-SECTION');
+    if (!section) return;
+
+    const links = Array.from(section.querySelectorAll('a')) as HTMLElement[];
+    const currentIndex = links.indexOf(activeElement);
+
+    let nextIndex = currentIndex + 1;
+    if (currentIndex === -1) {
+        nextIndex = 0;
+    }
+
+    if (nextIndex >= 0 && nextIndex < links.length) {
+        const nextLink = links[nextIndex];
+        nextLink.focus();
+    } 
+}
+
     moveToPreviousItem() {
-        let newNode: Element | null = null;
-        let activeElement = document.activeElement;
-        if (activeElement != null) {
-            if (activeElement.tagName === 'ILW-HEADER-MEGAMENU-SECTION' && (!this.isEmbedded() || this.expanded)) {
-                newNode = activeElement.querySelector('li');
-                if (newNode != null) {
-                    newNode = newNode.children[0];
-                }
-            } else {
-                newNode = activeElement.closest('li');
-                if (newNode != null) {
-                    newNode = newNode.previousElementSibling;
-                }
-                if (newNode != null) {
-                    newNode = newNode.children[0];
-                }
-            }
-            if (newNode != null) {
-                if (newNode.tagName === 'ILW-HEADER-MEGAMENU-SECTION') {
-                    (newNode as MegaMenuSection).setFocus();
-                } else {
-                    (newNode as HTMLElement).focus();
-                }
-            }
+        const activeElement = document.activeElement as HTMLElement | null;
+        if (!activeElement) return;
+
+        const section = activeElement.closest('ILW-HEADER-MEGAMENU-SECTION');
+        if (!section) return;
+
+        const links = Array.from(section.querySelectorAll('a')) as HTMLElement[];
+        const currentIndex = links.indexOf(activeElement);
+
+        let prevIndex = currentIndex - 1;
+        if (currentIndex === -1) {
+            prevIndex = links.length - 1;
+        }
+
+        if (prevIndex >= 0 && prevIndex < links.length) {
+            const prevLink = links[prevIndex];
+            prevLink.focus();
         }
     }
 
