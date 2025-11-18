@@ -51,7 +51,52 @@ ilw-header-megamenu-section[linked][aria-current="page"] a[slot="link"] {
 
 ilw-header-megamenu-section {
       
-  
+  img{
+        margin: 30px;
+        aspect-ratio: 1 / 1;
+        object-fit: cover;
+        max-width: 260px;
+        height: auto;
+        border-radius: 30px;
+    }
+
+    .span-2{
+        grid-column: span 2;
+        aspect-ratio: 16 / 9;
+        max-width: 440px;
+        justify-self: center;
+    }
+     .span-3{
+        grid-column: span 3;
+        aspect-ratio: 16 / 9;
+        max-width: 840px;
+        justify-self: center;
+    }
+
+    .align-right{
+        grid-column: 4;
+        justify-self: right;
+    }
+    .span-2.align-right{
+        grid-column: 3 / span 2;
+        justify-self: right;
+    }
+    .span-3.align-right{
+        grid-column: 2 / span 3;
+        justify-self: right;
+    }
+
+    span{
+        text-align: center;
+        margin: auto;
+    }
+
+     span > *{
+        font-size: 21px;
+        font-weight: bold;
+        font-family: "Source Sans", sans-serif;
+    }
+
     
     ul {
        
@@ -131,7 +176,7 @@ ilw-header-megamenu-section {
     
       div{
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        grid-template-columns: repeat(4, minmax(0,320px));
 
          ul:not(:last-child){
                 border-right: solid 2px var(--il-storm-85, #d5d3d3);
@@ -140,13 +185,12 @@ ilw-header-megamenu-section {
         ul{
             display: block;
             li {
-
                 ul{
                     margin-top: 0;
                     margin-bottom: 0;
 
                     li{
-                        border-right: none;
+                        border-right: none;                        
                     }
                 }     
             }
@@ -155,41 +199,6 @@ ilw-header-megamenu-section {
     }
 
 }
-/* 
-    ul.five-item-max{
-    display: grid;
-    grid-template-columns: repeat(4, 320px);
-    grid-template-rows: repeat(5, 40px);
-    grid-auto-flow: column;
-
-        li:not(:nth-last-child(-n+5)){
-            border-right: solid 2px var(--il-storm-85, #d5d3d3);
-        }
-    } */
-
-    /* div.menu-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-
-         ul:not(:last-child){
-                border-right: solid 2px var(--il-storm-85, #d5d3d3);
-         }
-
-        ul{
-            li {
-
-                ul{
-                    margin-top: 0;
-                    margin-bottom: 0;
-
-                    li{
-                        border-right: none;
-                    }
-                }     
-            }
-            
-        }
-    } */
 
 
 
