@@ -222,7 +222,7 @@ export default class MegaMenuSection extends LitElement {
         lists.forEach((list, index) =>{
             const position = index + 1;
             if (position <= columnend){
-                list.style.borderRight = 'solid 2px var(--il-storm-85, #d5d3d3)';
+                (list as HTMLElement).style.borderRight = 'solid 2px var(--il-storm-85, #d5d3d3)';
             }
         })
 
