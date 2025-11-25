@@ -31,20 +31,23 @@
         "test:axe": "playwright test",
         "test:axe:github": "playwright test --config playwright.ci.config.ts",
         "test": "vitest run --browser.headless",
-        "test:browser": "vitest watch --browser chromium"
+        "test:browser": "vitest browser --browser chromium"
     },
     "dependencies": {
+        "@lit/context": "1.1.6",
         "lit": "3.1.3"
     },
     "devDependencies": {
+        "@axe-core/playwright": "^4.10.2",
         "@illinois-toolkit/ilw-core": "^1.0.2",
         "@playwright/test": "^1.54.1",
         "@vitest/browser": "^3.2.4",
-        "playwright": "^1.54.1",
-        "typescript": "^5.9.2",
-        "vite": "^7.2.2",
+        "axe-html-reporter": "^2.2.11",
+        "playwright": "^1.57.0",
+        "prettier": "^3.6.2",
+        "typescript": "^5.8.3",
+        "vite": "^7.0.5",
         "vite-plugin-dts": "^4.5.4",
         "vitest-browser-lit": "^0.1.0"
     }
-    
 }
