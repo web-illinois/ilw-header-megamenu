@@ -231,7 +231,7 @@ The intention is to only use one secondary item, a decorative image or call-to-a
             </ilw-header-megamenu-section>
       </li>
     </ul>
- <ilw-header-megamenu>
+ </ilw-header-megamenu>
 ```
 
 ## Usability
