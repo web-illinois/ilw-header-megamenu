@@ -1,6 +1,6 @@
 {
     "name": "@illinois-toolkit/ilw-header-megamenu",
-    "description": "One paragraph description of the component.",
+    "description": "Mega Menu for the top of the page.",
     "repository": "github:web-illinois/ilw-header-megamenu",
     "private": false,
     "license": "MIT",

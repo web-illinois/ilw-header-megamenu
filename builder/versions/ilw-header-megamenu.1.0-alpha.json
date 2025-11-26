@@ -6,7 +6,7 @@
     "element-name": "ilw-header-megamenu",
     "description": "Mega Menu for the top of the page.",
     "builder-version": "1.0-alpha",
-    "version": "1.0.0-alpha",
+    "version": "1.0.1-alpha",
     "date": "11/06/2025",
     "css": "https://dev.toolkit.illinois.edu/ilw-header-megamenu/1.0.0-alpha/ilw-header-megamenu.css",
     "js": "https://dev.toolkit.illinois.edu/ilw-header-megamenu/1.0.0-alpha/ilw-header-megamenu.js",
@@ -16,8 +16,8 @@
     "samples": [
         {
             "name": "default",
-            "description": "Default information",
-            "text": "<ul><li><ilw-header-menu-section><span slot='label'>Start Here</span> <ul> <li><a href='/getting_started/index.html'>Getting Started</a></li> <li><a href='/create_page/index.html'>Create a Page</a></li> <li><a href='/upgrade/index.html'>Upgrade from V2</a></li> </ul> </ilw-header-menu-section></li> <li><ilw-header-menu-section id='current2' linked='true'> <a slot='link' href='/philosophy/index.html'>Information</a> <ul> <li><a href='/philosophy/index.html'>Philosophy</a></li> <li><a href='/links/index.html'>Helpful Links</a></li> <li><a href='/github/index.html'>Organization and Github</a></li> <li> <ilw-header-menu-section> <span slot='label'>Smithsonite</span> <ul> <li><a href='#'>Amphibole</a></li> <li><a href='#'>Pyroxene</a></li> <li><a href='#'>Feldspar</a></li> </ul> </ilw-header-menu-section></li> <li><ilw-header-menu-section linked='true'> <a slot='link' href='#'>Garnet</a> <ul> <li><a href='#'>Gneiss</a></li> <li><a href='#'>Peridotite</a></li> <li><a href='#'>Syenite</a></li> <li><a href='#'>Porphyry</a></li> </ul> </ilw-header-menu-section></li> </ul> </ilw-header-menu-section></li> <li><a href='/demo/index.html' id='current3'>Demo Pages</a></li> <li><a href='/components_toc/index.html'>Components</a></li> <li><a href='/preview/index.html'>Component Preview</a></li> <li><ilw-header-menu-section right> <span slot='label'>Six</span> <ul> <li><a href='/philosophy/index.html'>Philosophy</a></li> <li><a href='/links/index.html'>Helpful Links</a></li> <li><a href='/github/index.html'>Organization and Github</a></li> </ul> </ilw-header-menu-section></li> <li><ilw-header-menu-section linked right> <a slot='link' href='/philosophy/index.html'>Seven</a> <ul> <li><a href='/philosophy/index.html'>Philosophy</a></li> <li><a href='/links/index.html'>Helpful Links</a></li> <li><a href='/github/index.html'>Organization and Github</a></li> <li> <ilw-header-menu-section right> <span slot='label'>Smithsonite</span> <ul> <li><a href='#'>Amphibole</a></li> <li><a href='#'>Pyroxene</a></li> <li><a href='#'>Feldspar</a></li> </ul> </ilw-header-menu-section></li> <li><ilw-header-menu-section linked='true' right> <a slot='link' href='#'>Garnet</a> <ul> <li><a href='#'>Gneiss</a></li> <li><a href='#'>Peridotite</a></li> <li><a href='#'>Syenite</a></li> <li><a href='#'>Porphyry</a></li> </ul> </ilw-header-menu-section></li> </ul> </ilw-header-menu-section></li> </ul>"
+            "description": "Default Information",
+            "text": "<ul> <li> <ilw-header-megamenu-section linked='true'> <a slot='link' href='/'>Basic top links, no groups or nesting</a> <ul> <li><a href='/'>Undergrad Admissions</a></li> <li><a href='/'>Graduate Admissions</a></li> <li><a href='/'>International Admissions</a></li> <li><a href='/'>Degrees</a></li> <li><a href='/'>Certificates</a></li> <li><a href='/'>Online Programs</a></li> <li><a href='/'>Research Focus Areas</a></li> <li><a href='/'>Find a mentor</a></li> <li><a href='/'>Degrees</a></li> <li><a href='/'>Certificates</a></li> <li><a href='/'>Online Programs</a></li> <li><a href='/'>Undergrad Admissions</a></li> <li><a href='/'>Graduate Admissions</a></li> </ul> </ilw-header-megamenu-section> </li> <li> <ilw-header-megamenu-section> <span slot='label'>Four columns, destinct groups with some nesting and a vanilla image</span> <div> <!-- column 1 --> <ul> <li><a href='/'>Undergrad Admissions</a> <ul> <li><a href='/'>Apply</a></li> <li><a href='/'>Majors</a></li> <li><a href='/'>Cost and Aid</a></li> </ul> </li> <li><a href='/'>Graduate Admissions</a> <ul> <li><a href='/'>Apply</a></li> <li><a href='/'>Majors</a></li> <li><a href='/'>Cost and Aid</a></li> </ul> </li> <li><a href='/'>International Admissions</a></li> </ul> <!-- column 1 --> <!-- column 2 --> <ul> <li><a href='/'>Degrees</a></li> <li><a href='/'>Certificates</a></li> <li><a href='/'>Online Programs</a></li> </ul> <!-- column 2 --> <!-- column 3 --> <ul> <li><a href='/'>Undergrad Admissions</a></li> <li><a href='/'>Graduate Admissions</a></li> <li><a href='/'>International Admissions</a> <ul> <li><a href='/'>Degrees</a></li> <li><a href='/'>Certificates</a></li> <li><a href='/'>Online Programs</a></li> <li><a href='/'>Research Focus Areas</a></li> </ul> </li> <li><a href='/'>Find a mentor</a></li> <li><a href='/'>Student Handbook</a></li> </ul> <!-- column 3 --> <!-- column 4 --> <ul> <li><a href='/'>Undergrad Admissions</a></li> <li><a href='/'>Graduate Admissions</a></li> <li><a href='/'>International Admissions</a> <ul> <li><a href='/'>Degrees</a></li> <li><a href='/'>Certificates</a></li> <li><a href='/'>Online Programs</a></li> <li><a href='/'>Research Focus Areas</a></li> </ul> </li> </ul> <!-- column 4 --> </div> </ilw-header-megamenu-section> </li> <li> <ilw-header-megamenu-section> <span slot='label'>Links, with decorative image aligned left</span> <div> <ul> <li><a href='/'>Undergrad Admissions</a></li> <li><a href='/'>Graduate Admissions</a></li> <li><a href='/'>International Admissions</a></li> <li><a href='/'>Degrees</a></li> <li><a href='/'>Certificates</a></li> </ul> <ul> <li><a href='/'>Undergrad Admissions</a></li> <li><a href='/'>Graduate Admissions</a></li> <li><a href='/'>International Admissions</a></li> <li><a href='/'>Degrees</a></li> <li><a href='/'>Certificates</a></li> </ul> <ul> <li><a href='/'>Undergrad Admissions</a></li> <li><a href='/'>Graduate Admissions</a></li> <li><a href='/'>International Admissions</a> <ul> <li><a href='/'>Degrees</a></li> <li><a href='/'>Certificates</a></li> <li><a href='/'>Online Programs</a></li> <li><a href='/'>Research Focus Areas</a></li> </ul> </li> <li><a href='/'>Find a mentor</a></li> <li><a href='/'>Student Handbook</a></li> </ul> <img class='align-left' src='https://fastly.picsum.photos/id/1025/500/400.jpg?hmac=MPFZjsU2UG1Mr3SjMkYP2F9jnhQWyatt6soxbOj0TN4'> </div> </ilw-header-megamenu-section> </li> <li> <ilw-header-megamenu-section> <span slot='label'>Links with image call to action</span> <div> <ul> <li><a href='/'>Undergrad Admissions</a></li> <li><a href='/'>Graduate Admissions</a></li> <li><a href='/'>International Admissions</a> <ul> <li><a href='/'>Degrees</a></li> <li><a href='/'>Certificates</a></li> <li><a href='/'>Online Programs</a></li> <li><a href='/'>Research Focus Areas</a></li> </ul> </li> <li><a href='/'>Find a mentor</a></li> <li><a href='/'>Student Handbook</a></li> </ul> <span  slot='action' class='span-3'> <p> Prospective students </p> <button class='ilw-button ilw-theme-orange-2'>Link 2</button> <img src='https://picsum.photos/id/37/300/300'> </span> </div> </ilw-header-megamenu-section> </li> <li> <ilw-header-megamenu-section> <span slot='label'>Links with plain call to action</span> <div> <ul> <li><a href='/'>Undergrad Admissions</a></li> <li><a href='/'>Graduate Admissions</a></li> <li><a href='/'>International Admissions</a></li> <li><a href='/'>Degrees</a></li> <li><a href='/'>Certificates</a></li> <li><a href='/'>Undergrad Admissions</a></li> <li><a href='/'>Graduate Admissions</a></li> <li><a href='/'>International Admissions</a></li> <li><a href='/'>Degrees</a></li> <li><a href='/'>Certificates</a></li> </ul> <ul> <li><a href='/'>Undergrad Admissions</a></li> <li><a href='/'>Graduate Admissions</a></li> <li><a href='/'>International Admissions</a> <ul> <li><a href='/'>Degrees</a></li> <li><a href='/'>Certificates</a></li> <li><a href='/'>Online Programs</a></li> <li><a href='/'>Research Focus Areas</a></li> </ul> </li> <li><a href='/'>Find a mentor</a></li> <li><a href='/'>Student Handbook</a></li> </ul> <span  slot='action' class='span-2 align-left'> <p> Prospective students </p> <button class='ilw-button ilw-theme-orange-2'>Link 2</button> </span> </div> </ilw-header-megamenu-section> </li> </ul>"
         }
     ],
     "attributes-fixed": [],
@@ -26,7 +26,7 @@
         {
             "name": "compact",
             "description": "Whether or not it is compact",
-            "depreciated": false,
+            "deprecated": false,
             "values": [
                 "",
                 "true"
@@ -35,7 +35,7 @@
         {
             "name": "width",
             "description": "The width it switches to compact, in pixels. Must be a number. Default is 990.",
-            "depreciated": false,
+            "deprecated": false,
             "values": [
                 "",
                 "990"
@@ -43,7 +43,23 @@
         }
     ],
     "classes-fixed": [],
-    "classes": [],
+    "classes": [
+        {
+            "name": "align-left",
+            "description": "forces a secondary item to go to the left-most column of the menu dropdown",
+            "deprecated": false
+        },
+        {
+            "name": "span-2",
+            "description": "Allows a secondary item to fill up two columns at a time",
+            "deprecated": false
+        },
+        {
+            "name": "span-3",
+            "description": "Allows a secondary item to fill up three columns at a time",
+            "deprecated": false
+        }
+    ],
     "css-variables": [
     ]
 }
