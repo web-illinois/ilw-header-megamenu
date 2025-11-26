@@ -23,7 +23,7 @@ Within each `ilw-header-megamenu-section` or `ilw-header-megamenu-section linked
 
 OR a `<div>` containing:
 - four seperated lists of links with nesting. Each new list will become it's own column. You can have as many list items as you want using this method. Note that items spanning more than four columns can result in wrapped columns.
-Optional secondary items - each secondary item will be placed on the far right column, unless left attribute is added. 
+Optional secondary items - each secondary item will be placed on the far right column, unless align-left class is added. 
 - a decorative image
 - a `<span>` containing a paragraph element and a call to action (`<a>` or `<button>`). The span should contain `slot="action"`.
 
