@@ -212,25 +212,36 @@ export default class MegaMenuSection extends LitElement {
             }
         }
 
-            const lists = document.querySelectorAll<HTMLLIElement>(
-            'ilw-header-megamenu-section > ul li'
-            );
+                const sections = document.querySelectorAll('ilw-header-megamenu-section');
 
-            const listitems = lists.length;
-            const groupsoffive = Math.floor(listitems / 5);
-            let columnend = groupsoffive * 5;
+                sections.forEach((section) => {
 
-    
-            columnend = Math.min(columnend, 15);
+                const lists = section.querySelectorAll<HTMLLIElement>('ilw-header-megamenu-section > ul > li');
+                const listitems = lists.length;
 
-            lists.forEach((list, index) => {
-            const position = index + 1;
-            if (position <= columnend) {
-                list.style.borderRight = 'solid 2px var(--il-storm-85, #d5d3d3)';
-            } else {
-                list.style.borderRight = 'none';
-            }
-            });
+                if (listitems === 5) {
+                    lists.forEach((list, index) => {
+                    list.style.borderRight = 'none';
+                    });
+                    return;
+                }
+
+                let columnend = Math.floor(listitems / 5) * 5;
+
+                columnend = Math.min(columnend, 15);
+
+                lists.forEach((list, index) => {
+                    const position = index + 1;
+
+                    if (position <= columnend) {
+                    list.style.borderRight = 'solid 2px var(--il-storm-85, #d5d3d3)';
+                    } else {
+                    list.style.borderRight = 'none';
+                    }
+                });
+                });
+
+
 
 
 

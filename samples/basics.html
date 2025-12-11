@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Header Mega Menu Component</title>
+    <link rel="stylesheet" href="https://cdn.brand.illinois.edu/illinois.css">
+    <link rel="stylesheet" href="https://dev.toolkit.illinois.edu/ilw-global/3.0.0-alpha/ilw-global.css">
+    <link rel="stylesheet" href="https://cdn.toolkit.illinois.edu/3/toolkit.css">
+    <script type="module" src="https://cdn.toolkit.illinois.edu/3/toolkit.js"></script>
+   
+
+    <script type="module" src="/src/ilw-header-megamenu.ts"></script>
+       <script>
+        document.addEventListener("DOMContentLoaded", function(event) {
+          const params = new URLSearchParams(window.location.search);
+          document.querySelectorAll("ilw-header-megamenu").forEach(component => {
+            if (params.has('compact')) {
+              component.setAttribute('compact', 'true');
+            }
+          });
+        });
+    </script>
+</head>
+
+<body style="margin: 0; padding: 0;">
+ <ilw-header slot="header">
+  <a slot="primary-unit" href="https://wigg.illinois.edu/">Web Implementation Guidelines Group</a>
+  <a slot="site-name" href="/index.html">Component Builder Information (v3+)</a>
+  <nav slot="links" aria-label="Utility">
+    <ul>
+      <li><a href="https://builder.toolkit.illinois.edu">Old Builder</a></li>
+      <li><a href="https://wigg.illinois.edu/membership/web-components/">About Our Team</a></li>
+    </ul>
+  </nav>
+  <form slot="search" method="get" action="/search.php" role="search">
+    <input type="search" name="search" aria-labelledby="search-button">
+    <button id="search-button" type="submit">Search</button>
+  </form>
+  <ilw-header-megamenu slot="navigation">
+    <ul>
+    <li>
+      <ilw-header-megamenu-section linked="true">
+          <a slot="link" href="/">About</a>
+         
+          <ul>
+            <li><a href="/">Directory</a></li>
+            <li><a href="/">Departments</a></li>
+            <li><a href="/">News</a></li>
+            <li><a href="/">Events</a></li>
+            <li><a href="/">Careers</a></li>
+            <li><a href="/">Contact</a></li>
+            <li><a href="/">Visit</a></li>
+          </ul>
+         
+        </ilw-header-megamenu-section>
+       </li>
+      <li>
+        <ilw-header-megamenu-section>
+          <span slot="label">Admissions</span>
+          <div>
+              <ul>
+                <li><a href="/">Undergrad Admissions</a>
+                      <ul>
+                        <li><a href="/">Apply</a></li>
+                        <li><a href="/">Majors</a></li>
+                        <li><a href="/">Cost and Aid</a></li>
+                      </ul>
+                </li>
+              </ul>
+              
+               <ul>
+                <li><a href="/">Graduate Admissions</a>
+                        <ul>
+                        <li><a href="/">Apply</a></li>
+                        <li><a href="/">Majors</a></li>
+                        <li><a href="/">Cost and Aid</a></li>
+                      </ul>
+                </li>
+               </ul>
+               <ul>
+                <li><a href="/">International Admissions</a></li>
+               </ul>
+              
+          </div>
+        </ilw-header-megamenu-section>
+      </li>
+      <li>
+          <ilw-header-megamenu-section>
+              <span slot="label">Academics</span>
+                <ul>
+                <li><a href="/">Degrees</a></li>
+                <li><a href="/">Honors Programs</a></li>
+                <li><a href="/">Online Programs</a></li>
+                <li><a href="/">Certificates</a></li>
+                <li><a href="/">Academic Calendar</a></li>
+              </ul>
+              
+            </ilw-header-megamenu-section>
+      </li>
+        <li>
+          <ilw-header-megamenu-section>
+              <span slot="label">Research</span>
+              
+                <ul>
+                  <li><a href="/">Research Centers</a></li>
+                  <li><a href="/">History</a></li>
+                  <li><a href="/">Resources</a>
+                </ul>
+                </span>
+                
+             
+            </ilw-header-megamenu-section>
+    </li>
+    <li>
+            <ilw-header-megamenu-section>
+              <span slot="label">Community</span>
+                <ul>
+                  <li><a href="/">Visit</a></li>
+                  <li><a href="/">Student Life</a></li>
+                  <li><a href="/">Public Events</a></li>
+                  <li><a href="/">First-Gen Services</a></li>
+                </ul>
+                
+            </ilw-header-megamenu-section>
+      </li>
+       <li>
+            <ilw-header-megamenu-section>
+              <span slot="label">Alumni</span>
+                <ul>
+                  <li><a href="/">Get Involved</a></li>
+                  <li><a href="/">Awards</a></li>
+                  <li><a href="/">Give</a></li>
+                  <li><a href="/">Events</a></li>
+                </ul>
+                
+            </ilw-header-megamenu-section>
+      </li>
+    </ul>
+  </ilw-header-megamenu>
+
+</body>
+
+</html>
