@@ -20,11 +20,6 @@ export default class MegaMenuSection extends LitElement {
     @property({ 
         type: Boolean
     })
-    right = false;
-
-    @property({ 
-        type: Boolean
-    })
     expanded = false;
 
     @property({
@@ -128,29 +123,29 @@ export default class MegaMenuSection extends LitElement {
 
 
     moveToNextItem() {
-    if (!this.expanded && !this.isEmbedded()) {
-        this.expanded = true;
+        if (!this.expanded && !this.isEmbedded()) {
+            this.expanded = true;
+        }
+
+        const activeElement = document.activeElement as HTMLElement | null;
+        if (!activeElement) return;
+
+        const section = activeElement.closest('ILW-HEADER-MEGAMENU-SECTION');
+        if (!section) return;
+
+        const links = Array.from(section.querySelectorAll('a, button')) as HTMLElement[];
+        const currentIndex = links.indexOf(activeElement);
+
+        let nextIndex = currentIndex + 1;
+        if (currentIndex === -1) {
+            nextIndex = 0;
+        }
+
+        if (nextIndex >= 0 && nextIndex < links.length) {
+            const nextLink = links[nextIndex];
+            nextLink.focus();
+        } 
     }
-
-    const activeElement = document.activeElement as HTMLElement | null;
-    if (!activeElement) return;
-
-    const section = activeElement.closest('ILW-HEADER-MEGAMENU-SECTION');
-    if (!section) return;
-
-    const links = Array.from(section.querySelectorAll('a, button')) as HTMLElement[];
-    const currentIndex = links.indexOf(activeElement);
-
-    let nextIndex = currentIndex + 1;
-    if (currentIndex === -1) {
-        nextIndex = 0;
-    }
-
-    if (nextIndex >= 0 && nextIndex < links.length) {
-        const nextLink = links[nextIndex];
-        nextLink.focus();
-    } 
-}
 
     moveToPreviousItem() {
         const activeElement = document.activeElement as HTMLElement | null;
@@ -196,68 +191,62 @@ export default class MegaMenuSection extends LitElement {
         this.getSections().forEach(s => { if (target == null || target != s) { s.expanded = false; } });
     }
 
+    private hasSlotContent(name: string): boolean {
+        const slot = this.shadowRoot!.querySelector(`slot[name="${name}"]`) as HTMLSlotElement;
+        if (!slot) return false;
+        return slot.assignedNodes({ flatten: true }).length > 0;
+        }
 
     render() {
         const actionSpan = this.querySelector('span[slot="action"]');
         let actionId: string | null = null;
         if (actionSpan) {
-            const pText = actionSpan.querySelector('p')?.textContent?.trim() || '';
-            let link = actionSpan.querySelector('a, button');
-            if (pText) {
-            actionId = `action-${pText.replace(/\s+/g, '-')}`; // normalize spaces
-            actionSpan.id = actionId;
+                const pText = actionSpan.querySelector('p')?.textContent?.trim() || '';
+                let link = actionSpan.querySelector('a, button');
+                if (pText) {
+                actionId = `action-${pText.replace(/\s+/g, '-')}`; // normalize spaces
+                actionSpan.id = actionId;
             }  
             if (link && actionId) {
-                link.setAttribute('aria-labelledby', actionId);
+                link.setAttribute('aria-describedby', actionId);
             }
         }
 
-                const sections = document.querySelectorAll('ilw-header-megamenu-section');
+        const sections = document.querySelectorAll('ilw-header-megamenu-section');
+        sections.forEach((section) => {
 
-                sections.forEach((section) => {
-
-                const lists = section.querySelectorAll<HTMLLIElement>('ilw-header-megamenu-section > ul > li');
-                const listitems = lists.length;
-
-                if (listitems === 5) {
+            const lists = section.querySelectorAll<HTMLLIElement>('ilw-header-megamenu-section > ul > li');
+            const listitems = lists.length;
+            if (listitems === 5) {
                     lists.forEach((list, index) => {
                     list.style.borderRight = 'none';
-                    });
-                    return;
-                }
-
-                let columnend = Math.floor(listitems / 5) * 5;
-
-                columnend = Math.min(columnend, 15);
-
-                lists.forEach((list, index) => {
-                    const position = index + 1;
-
-                    if (position <= columnend) {
+                });
+                return;
+            }
+            let columnend = Math.floor(listitems / 5) * 5;
+            columnend = Math.min(columnend, 15);
+            lists.forEach((list, index) => {
+                const position = index + 1;
+                if (position <= columnend) {
                     list.style.borderRight = 'solid 2px var(--il-storm-85, #d5d3d3)';
-                    } else {
+                } else {
                     list.style.borderRight = 'none';
-                    }
-                });
-                });
-
-
-
-
-
+                }
+            });
+        });
 
         let isSubMenu = this.parentElement != null && this.parentElement.closest("ilw-header-megamenu-section") != null;
-                this.current = this.current || (this.getAttribute('aria-current') != null && (this.getAttribute('aria-current') === 'page' || this.getAttribute('aria-current') === 'true'));
-                var withLink = html`
-                    <div class="header-link ${this.mouseover ? "highlighted" : ""} ${this.compact ? "compact" : ""} ${this.current ? "current" : ""}" @mouseover="${this.toggleMouseOver.bind(this)}"  @mouseout="${this.toggleMouseOver.bind(this)}">
-                        <slot name="link"></slot>
-                        <button class="arrow-only" @click=${this.handleToggleClick.bind(this)} aria-expanded=${this.expanded ? 'true' : 'false'} aria-label=${this.querySelector('a[slot="link"]')?.textContent + ' submenu'} aria-controls="items">
-                            ${this.renderArrow()}
-                        </button>
-                    </div>
-                `;
+        this.current = this.current || (this.getAttribute('aria-current') != null && (this.getAttribute('aria-current') === 'page' || this.getAttribute('aria-current') === 'true'));
         
-
+        var withLink = html`
+            <div class="header-link ${this.mouseover ? "highlighted" : ""} ${this.compact ? "compact" : ""} ${this.current ? "current" : ""}" @mouseover="${this.toggleMouseOver.bind(this)}"  @mouseout="${this.toggleMouseOver.bind(this)}">
+                <slot name="link"></slot>
+                <button class="arrow-only" @click=${this.handleToggleClick.bind(this)} aria-expanded=${this.expanded ? 'true' : 'false'} aria-label=${this.querySelector('a[slot="link"]')?.textContent + ' submenu'} aria-controls="items">
+                    ${this.renderArrow()}
+                </button>
+            </div>
+        `;
+        
         var withoutLink = html`
             <button class="${this.current ? "current" : ""}" @click=${this.handleToggleClick.bind(this)} aria-expanded=${this.expanded ? 'true' : 'false'} aria-controls="items">
                 <div class="header">
@@ -267,11 +256,29 @@ export default class MegaMenuSection extends LitElement {
             </button>
         `;
 
+        const uls = this.querySelectorAll<HTMLUListElement>('ul');
+        const ulCount = uls.length;
+        console.log('UL count in render:', ulCount);
+
+        const hasLeft = this.hasSlotContent('action-left');
+        const hasRight = this.hasSlotContent('action-right');
+
+        const needsWrapper = ulCount > 1 || hasLeft || hasRight;
+
+
         return html`
             <div class="${isSubMenu ? 'submenu' : 'menu'} parent" @ilw-header-megamenu-section-expanded=${this.handleNavigationSectionToggleClick}>
                 ${this.linked ? withLink : withoutLink}
-                <div id="items" class="${this.expanded ? 'expanded' : ''} ${this.right ? 'right' : ''}">
-                    <slot></slot>
+                <div id="items" class="${this.expanded ? 'expanded' : ''}">
+                    ${needsWrapper
+                        ? html`
+                            <div class="list-wrapper">
+                                <slot name="action-left"></slot>
+                                <slot id="list-slot"></slot>
+                                <slot name="action-right"></slot>
+                            </div>
+                            `
+                        :  html`<slot id="list-slot" class="solo-list"></slot>`}
                 </div>
             </div>
         `;

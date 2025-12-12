@@ -41,8 +41,8 @@
   <ilw-header-megamenu slot="navigation">
     <ul>
     <li>
-      <ilw-header-megamenu-section linked="true">
-          <a slot="link" href="/">Basic top links, no groups or nesting</a>
+      <ilw-header-megamenu-section linked="true" class="solo-list">
+          <a slot="link" href="/">Single Unordered List</a>
          
           <ul>
             <li><a href="/">Undergrad Admissions</a></li>
@@ -64,9 +64,8 @@
        </li>
       <li>
         <ilw-header-megamenu-section>
-          <span slot="label">Four columns, destinct groups with some nesting and a vanilla image</span>
-          <div>
-            <!-- column 1 -->
+          <span slot="label">Distinct Columns</span>
+        
               <ul>
                 <li><a href="/">Undergrad Admissions</a>
                       <ul>
@@ -84,15 +83,13 @@
                 </li>
                 <li><a href="/">International Admissions</a></li>
               </ul>
-              <!-- column 1 -->
-              <!-- column 2 -->
+          
                 <ul>
                   <li><a href="/">Degrees</a></li>
                   <li><a href="/">Certificates</a></li>
                   <li><a href="/">Online Programs</a></li>
                 </ul>
-              <!-- column 2 -->
-              <!-- column 3 -->
+           
                 <ul>
                   <li><a href="/">Undergrad Admissions</a></li>
                   <li><a href="/">Graduate Admissions</a></li>
@@ -107,8 +104,7 @@
                   <li><a href="/">Find a mentor</a></li>
                   <li><a href="/">Student Handbook</a></li>
                 </ul>
-              <!-- column 3 -->
-              <!-- column 4 -->
+           
             <ul>
               <li><a href="/">Undergrad Admissions</a></li>
               <li><a href="/">Graduate Admissions</a></li>
@@ -121,15 +117,14 @@
                 </ul>
               </li>
             </ul>
-             <!-- column 4 -->
-          </div>
+           
+          
         </ilw-header-megamenu-section>
       </li>
       <li>
           <ilw-header-megamenu-section>
-              <span slot="label">Links, with decorative image aligned left</span>
-              <div>
-
+              <span slot="label">Decorative Image</span>
+              
                 <ul>
                 <li><a href="/">Undergrad Admissions</a></li>
                 <li><a href="/">Graduate Admissions</a></li>
@@ -160,13 +155,13 @@
                 </ul>
                  <img class="align-left" src="https://fastly.picsum.photos/id/1025/500/400.jpg?hmac=MPFZjsU2UG1Mr3SjMkYP2F9jnhQWyatt6soxbOj0TN4" alt="">  
 
-            </div>
+           
             </ilw-header-megamenu-section>
       </li>
         <li>
           <ilw-header-megamenu-section>
-              <span slot="label">Links with image call to action</span>
-              <div>
+              <span slot="label">CTA with image</span>
+            
                 <ul>
                   <li><a href="/">Undergrad Admissions</a></li>
                   <li><a href="/">Graduate Admissions</a></li>
@@ -181,19 +176,18 @@
                   <li><a href="/">Find a mentor</a></li>
                   <li><a href="/">Student Handbook</a></li>
                 </ul>
-                 <span  slot="action" class="span-3">
+                 <span  slot="action-right" class="span-3">
                   <p> Prospective students </p>
-                  <button class="ilw-button ilw-theme-orange-2">Link 2</button>
+                  <button class="ilw-button ilw-theme-orange-1">Link 2</button>
                   <img src="https://picsum.photos/id/37/300/300" alt="">  
                 </span>
                 
-              </div>
             </ilw-header-megamenu-section>
 </li>
 <li>
             <ilw-header-megamenu-section>
-              <span slot="label">Links with plain call to action</span>
-              <div>
+              <span slot="label">Plain CTA</span>
+              
                 <ul>
                   <li><a href="/">Undergrad Admissions</a></li>
                   <li><a href="/">Graduate Admissions</a></li>
@@ -220,12 +214,12 @@
                   <li><a href="/">Find a mentor</a></li>
                   <li><a href="/">Student Handbook</a></li>
                 </ul>
-                 <span  slot="action" class="span-2 align-left">
+                 <span  slot="action-right" class="span-2">
                   <p> Prospective students </p>
-                  <button class="ilw-button ilw-theme-orange-2">Link 2</button>
+                  <button class="ilw-button ilw-theme-orange-1">Link 2</button>
                 </span>
                 
-              </div>
+            
             </ilw-header-megamenu-section>
       </li>
     </ul>
