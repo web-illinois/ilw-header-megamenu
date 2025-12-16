@@ -215,7 +215,7 @@ export default class MegaMenuSection extends LitElement {
         const sections = document.querySelectorAll('ilw-header-megamenu-section');
         sections.forEach((section) => {
 
-            const lists = section.querySelectorAll<HTMLLIElement>('ilw-header-megamenu-section > ul > li');
+            const lists = section.querySelectorAll<HTMLLIElement>('ilw-header-megamenu-section.solo-list > ul > li');
             const listitems = lists.length;
             if (listitems === 5) {
                     lists.forEach((list, index) => {
@@ -274,7 +274,7 @@ export default class MegaMenuSection extends LitElement {
                         ? html`
                             <div class="list-wrapper">
                                 <slot name="action-left"></slot>
-                                <slot id="list-slot"></slot>
+                                <slot id="list-slot" class="border-end"></slot>
                                 <slot name="action-right"></slot>
                             </div>
                             `

@@ -135,6 +135,7 @@ ilw-header-megamenu-section {
         list-style: none;
         margin: 30px 0;
         padding-left: 0;
+        border-right: solid 2px var(--il-storm-85, #d5d3d3); 
       
         li {
             list-style: none;
@@ -147,11 +148,17 @@ ilw-header-megamenu-section {
 
             ul{
                 display: inherit;
+                margin: 0;
+                border: none;
 
                 a{
                     font-weight: normal;
                 }
             }
+
+    ul:nth-of-type(4n) {
+        border-right: none !important;
+    }
             
 
             a {

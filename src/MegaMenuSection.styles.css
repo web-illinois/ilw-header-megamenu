@@ -22,9 +22,6 @@
   height: 100%;
 }
 
-
-
-
 button, .link {
     all: initial;
     box-sizing: border-box;
@@ -175,6 +172,19 @@ button[aria-expanded="true"] {
 
 
 /* make distinct lists */
+div.list-wrapper{
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0,320px));
+        max-width: 100vw;
+        grid-auto-flow: column;
+}
+
+::slotted(ul:last-of-type) {
+  border: none !important;
+}
+
+
+
     /* div ul:nth-child(n + 5), div img:nth-child(n + 5), div span:nth-child(n + 5),  > ul > li > ul{
             display: none;
         } */
