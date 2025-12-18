@@ -44,41 +44,22 @@ ilw-header-megamenu-section[linked][aria-current="page"] a[slot="link"] {
 
 ilw-header-megamenu-section {
 
-    
-      
-  img{
-        margin: 30px;
-        object-fit: cover;
-        width: 90%;
-        height: auto;
-        border-radius: 30px;
-        grid-column: 4;
-        justify-self: right;
-    }
   
-    img.span-2, span[slot="action"].span-2{
+    /* span[slot="action"].span-2{
         grid-column: 3 / span 2;
     }
-     img.span-3, span[slot="action"].span-3{
+   span[slot="action"].span-3{
         grid-column: 2 / span 3;
     }
 
-    img.align-left, span[slot="action"].align-left{
-        grid-column: 1;
-        justify-self: left;
-    }
-    img.span-2.align-left, span[slot="action"].span-2.align-left{
-        grid-column: 1 / span 2;
-                justify-self: left;
+    span[slot="action"].span-2 img:first-of-type, span[slot="action"].span-3 img:first-of-type {
+        width: 90%;          
+        margin: 30px; 
+    } */
 
-    }
-    img.span-3.align-left, span[slot="action"].span-3.align-left{
-        grid-column: 1 / span 3;
-                justify-self: left;
 
-    }
 
-    span[slot="action"] {
+    /* span[slot="action-right"] {
         margin: auto;
         position: relative;
         width: 100%;
@@ -86,46 +67,69 @@ ilw-header-megamenu-section {
         display: flex;
         justify-content: center;
         flex-direction: column;
+    } */
+
+    /* span[slot="action-right"] *, span[slot="action-left"] *{
+        display: none;
+    } */
+
+    
+
+   
+
+    img{
+        margin: 36px;
+        object-fit: cover;
+        border-radius: 30px;
+        
     }
 
-    span[slot="action"] * {
-    display: none;
-    }
-
-    span[slot="action"] button:first-of-type {
-        display: block;
+     span[slot="action-right"], span[slot="action-left"]{
         position: relative;
-        z-index: 1;
-        margin:0 auto;
     }
 
-    span[slot="action"] p:first-of-type {
-    display: block;
-    text-align: center;
-    font-size: 21px;
-    font-weight: bold;
-    color: var(--il-blue);
-    font-family: "Source Sans", sans-serif;
-    position: relative;
-    z-index: 1;
-    }
-
-    span[slot="action"] img:first-of-type {
+    span[slot="action-right"]:has(p + button) img {
         display: block;       
         position: absolute;   
         top: 0;
-        left: 0;
-        width: 100%;          
-        height: 85%;        
-        object-fit: cover;    
-        z-index: 0;   
-        margin: 30px 0; 
+        left: 0;          
+        z-index: -1;   
+        margin: 36px; 
+        height: 80%;       
+        width: 90%;        
+        object-fit: cover;  
     }
 
-    span[slot="action"].span-2 img:first-of-type, span[slot="action"].span-3 img:first-of-type {
-        width: 90%;          
-        margin: 30px; 
+    span[slot="action-right"] p:first-of-type {
+            display: block;
+    
+    position: absolute;
+        top: 50%;             
+        left: 50%;           
+        transform: translate(-50%, -50%); 
+        text-align: center;
+        font-size: 21px;
+        font-weight: bold;
+        color: var(--il-blue);
+        font-family: "Source Sans", sans-serif;
+        position: relative;
+         margin-top: -30px;
+         width: 50%; 
+        
     }
+
+    span[slot="action-right"] button:first-of-type {
+        display: block;
+          position: absolute;
+        top: 50%;             
+        left: 50%;           
+        transform: translate(-50%, -50%); 
+        z-index: 1;
+        margin-top: 30px;
+    }
+
+     
+
 
 
 
