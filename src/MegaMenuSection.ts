@@ -236,6 +236,8 @@ export default class MegaMenuSection extends LitElement {
         });
 
         let isSubMenu = this.parentElement != null && this.parentElement.closest("ilw-header-megamenu-section") != null;
+        let isSolo = this.parentElement != null && this.parentElement.closest("ilw-header-megamenu-section") != null;
+
         this.current = this.current || (this.getAttribute('aria-current') != null && (this.getAttribute('aria-current') === 'page' || this.getAttribute('aria-current') === 'true'));
         
         var withLink = html`
@@ -256,16 +258,11 @@ export default class MegaMenuSection extends LitElement {
             </button>
         `;
 
-        const uls = this.querySelectorAll<HTMLUListElement>('ul');
-        const ulCount = uls.length;
-        console.log('UL count in render:', ulCount);
 
-        const hasLeft = this.hasSlotContent('action-left');
-        const hasRight = this.hasSlotContent('action-right');
+        const isSoloList = this.classList.contains('solo-list');
 
-        const needsWrapper = ulCount > 1 || hasLeft || hasRight;
-
-
+        const needsWrapper = !isSoloList;
+        
         return html`
             <div class="${isSubMenu ? 'submenu' : 'menu'} parent" @ilw-header-megamenu-section-expanded=${this.handleNavigationSectionToggleClick}>
                 ${this.linked ? withLink : withoutLink}
@@ -278,7 +275,7 @@ export default class MegaMenuSection extends LitElement {
                                 <slot name="action-right"></slot>
                             </div>
                             `
-                        :  html`<slot id="list-slot" class="solo-list"></slot>`}
+                        :  html`<slot id="list-slot"></slot>`}
                 </div>
             </div>
         `;
