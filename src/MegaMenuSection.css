@@ -81,29 +81,28 @@ ilw-header-megamenu-section {
         margin: 36px;
         object-fit: cover;
         border-radius: 30px;
-        
+        width: calc(100% - 72px);
+        height: auto;
     }
 
      span[slot="action-right"], span[slot="action-left"]{
         position: relative;
     }
 
-    span[slot="action-right"]:has(p + button) img {
+    span[slot="action-right"]:has(p + button) img, span[slot="action-left"]:has(p + button) img  {
         display: block;       
         position: absolute;   
         top: 0;
         left: 0;          
-        z-index: -1;   
         margin: 36px; 
-        height: 80%;       
-        width: 90%;        
-        object-fit: cover;  
+        height: calc(100% - 72px);      
+        width: calc(100% - 72px);        
+        object-fit: cover;
     }
 
-    span[slot="action-right"] p:first-of-type {
-            display: block;
-    
-    position: absolute;
+    span[slot="action-right"] p:first-of-type, span[slot="action-left"] p:first-of-type  {
+        display: block;
+        position: absolute;
         top: 50%;             
         left: 50%;           
         transform: translate(-50%, -50%); 
@@ -112,13 +111,13 @@ ilw-header-megamenu-section {
         font-weight: bold;
         color: var(--il-blue);
         font-family: "Source Sans", sans-serif;
-        position: relative;
          margin-top: -30px;
-         width: 50%; 
+         width: 50%;
+         z-index: 1;
         
     }
 
-    span[slot="action-right"] button:first-of-type {
+    span[slot="action-right"] button:first-of-type, span[slot="action-left"] button:first-of-type  {
         display: block;
           position: absolute;
         top: 50%;             
@@ -208,7 +207,9 @@ ilw-header-megamenu-section {
 }
 
 
-
+ilw-header-megamenu-section:has(span[slot="action-right"] + span[slot="action-left"]) span[slot="action-right"] {
+        display: none;
+    }
 
 ilw-header-megamenu-section {
     ilw-header-megamenu-section {
@@ -235,7 +236,7 @@ ilw-header-megamenu[compact] ilw-header-megamenu-section {
                   border-left: var(--ilw-header-megamenu--link-border-left-highlight--focus);
                 }
             }
-    span[slot="action"]{
+    /* span[slot="action"]{
             grid-column: auto;
             height: auto;
     }
@@ -247,6 +248,15 @@ ilw-header-megamenu[compact] ilw-header-megamenu-section {
         margin: auto 0;
         width: 100%;
         height: 100%;
+    } */
+
+    span[slot="action-left"] {
+        display: block;
+        min-height: 250px;
+    }
+
+    span[slot="action-left"] * {
+       
     }
 
     img{
@@ -298,7 +308,7 @@ ilw-header-megamenu[compact] ilw-header-megamenu-section ilw-header-megamenu-sec
     }
 }
 
-ul > span[action], li > span[action], ul > img, li > img, ul li:nth-child(n+21){
+ul > img, li > img, ul li:nth-child(n+21){
     display: none
 }
 

@@ -179,13 +179,16 @@ div.list-wrapper{
         overflow: hidden;
 }
 
+:host-context(ilw-header-megamenu[compact]) .list-wrapper {
+  all: unset;
+}
+
 ::slotted(ul:last-of-type) {
   border: none !important;
 }
 
 ::slotted([slot="action-right"]) {
   grid-column: 4; 
-  justify-self: center;
 }
 
 ::slotted([slot="action-right"].span-2) {
@@ -200,7 +203,6 @@ div.list-wrapper{
 
 ::slotted([slot="action-left"]) {
   grid-column: 1; 
-  justify-self: center;
 }
 
 ::slotted([slot="action-left"].span-2) {
@@ -210,6 +212,7 @@ div.list-wrapper{
 ::slotted([slot="action-left"].span-3) {
   grid-column: 1 / span 3; 
 }
+
 
 
 
