@@ -19,15 +19,14 @@ The ilw-header-megamenu should contain an unordered list. Each list item can con
 - an <ilw-header-megamenu-section linked="true"> that contains an anchor and at least one unordered list of links. The anchor should contain `slot="link"`.
 
 Within each `ilw-header-megamenu-section` or `ilw-header-megamenu-section linked="true"` you can choose:
-- a basic unordered list of less than 20 links and no nesting. Each list item will be divided into groups of 5 or less. Adding more than 20 items will result in missing links.
+- a basic unordered list of less than 20 links and no nesting. Each list item will be divided into groups of 5 or less. Adding more than 20 items will result in missing links. To make a solo-list use `class="solo-list"` otherwise you will get a list that only fills the first column.
+OR
+- four seperated lists of links with nesting. Each new list will become it's own column. You can have as many list items as you want using this method. Note that more than four lists can result in wrapped columns and is an unintended use.
 
-OR a `<div>` containing:
-- four seperated lists of links with nesting. Each new list will become it's own column. You can have as many list items as you want using this method. Note that items spanning more than four columns can result in wrapped columns.
-Optional secondary items - each secondary item will be placed on the far right column, unless align-left class is added. 
+Optional action-left and action-right slots can contain:
 - a decorative image
-- a `<span>` containing a paragraph element and a call to action (`<a>` or `<button>`). The span should contain `slot="action"`.
+- a `<span>` containing a paragraph element and a `<button>`. The span should contain `slot="action-left"` or `slot="action-right"` depending on where you'd like it to be placed. Only a single left or right slots can be used, if two are entered only left will appear. Note that any combination of items spanning more than four columns can result in wrapped columns and is an unintended use.
 
-The intention is to only use one secondary item, a decorative image or call-to-action, per dropdown. Repeating the same call-to-action in other dropdowns is not advised. You can use multiple lists. 
 
 ## Attributes
 
@@ -35,7 +34,7 @@ The intention is to only use one secondary item, a decorative image or call-to-a
 `compact`: a boolean value that will force the menu to be a hamburger menu. Before using this option, see Accessibility Notes and Use for more information.
 
 ## Classes
-`align-left`: aligns your secondary item to the far left column
+`solo-list`: allows you to have a single list with a fixed background height and fills up the 4 columns, maxing out at 20 items with no nesting
 `span-2`: allows your secondary item to span 2 columns
 `span-3`: allows your secondary item to span 3 columns
 
@@ -43,76 +42,74 @@ The intention is to only use one secondary item, a decorative image or call-to-a
 
 ```html
 <ilw-header-megamenu slot="navigation">
-    <ul>
-    <li>
-      <ilw-header-megamenu-section linked="true">
-          <a slot="link" href="/">Basic top links, no groups or nesting</a>
-         
-          <ul>
-            <li><a href="/">Undergrad Admissions</a></li>
-            <li><a href="/">Graduate Admissions</a></li>
-            <li><a href="/">International Admissions</a></li>
-            <li><a href="/">Degrees</a></li>
-            <li><a href="/">Certificates</a></li>
-            <li><a href="/">Online Programs</a></li>
-            <li><a href="/">Research Focus Areas</a></li>
-            <li><a href="/">Find a mentor</a></li>
-            <li><a href="/">Degrees</a></li>
-            <li><a href="/">Certificates</a></li>
-            <li><a href="/">Online Programs</a></li>
-            <li><a href="/">Undergrad Admissions</a></li>
-            <li><a href="/">Graduate Admissions</a></li>
-          </ul>
-         
-        </ilw-header-megamenu-section>
-       </li>
-      <li>
-        <ilw-header-megamenu-section>
-          <span slot="label">Four columns, destinct groups with some nesting and a vanilla image</span>
-          <div>
-            <!-- column 1 -->
-              <ul>
-                <li><a href="/">Undergrad Admissions</a>
-                      <ul>
-                        <li><a href="/">Apply</a></li>
-                        <li><a href="/">Majors</a></li>
-                        <li><a href="/">Cost and Aid</a></li>
-                      </ul>
-                </li>
-                <li><a href="/">Graduate Admissions</a>
-                        <ul>
-                        <li><a href="/">Apply</a></li>
-                        <li><a href="/">Majors</a></li>
-                        <li><a href="/">Cost and Aid</a></li>
-                      </ul>
-                </li>
-                <li><a href="/">International Admissions</a></li>
-              </ul>
-              <!-- column 1 -->
-              <!-- column 2 -->
+      <ul>
+        <li>
+          <ilw-header-megamenu-section class="solo-list">
+            <span slot="label">Single Unordered List</span>
+            <ul>
+              <li><a href="/">Undergrad Admissions</a></li>
+              <li><a href="/">Graduate Admissions</a></li>
+              <li><a href="/">International Admissions</a></li>
+              <li><a href="/">Degrees</a></li>
+              <li><a href="/">Certificates</a></li>
+              <li><a href="/">Online Programs</a></li>
+              <li><a href="/">Research Focus Areas</a></li>
+              <li><a href="/">Find a mentor</a></li>
+              <li><a href="/">Degrees</a></li>
+              <li><a href="/">Certificates</a></li>
+              <li><a href="/">Online Programs</a></li>
+              <li><a href="/">Undergrad Admissions</a></li>
+              <li><a href="/">Graduate Admissions</a></li>
+              <li><a href="/">Online Programs</a></li>
+              <li><a href="/">Research Focus Areas</a></li>
+              <li><a href="/">Find a mentor</a></li>
+              <li><a href="/">Degrees</a></li>
+              <li><a href="/">Certificates</a></li>
+              <li><a href="/">Online Programs</a></li>
+              <li><a href="/">Undergrad Admissions</a></li>
+              <li><a href="/">Graduate Admissions</a></li>
+            </ul>
+          </ilw-header-megamenu-section>
+        </li>
+        <li>
+          <ilw-header-megamenu-section>
+            <span slot="label">Distinct Columns</span>
+            <ul>
+              <li><a href="/">Undergrad Admissions</a>
+                <ul>
+                  <li><a href="/">Apply</a></li>
+                  <li><a href="/">Majors</a></li>
+                  <li><a href="/">Cost and Aid</a></li>
+                </ul>
+              </li>
+              <li><a href="/">Graduate Admissions</a>
+                <ul>
+                  <li><a href="/">Apply</a></li>
+                  <li><a href="/">Majors</a></li>
+                  <li><a href="/">Cost and Aid</a></li>
+                </ul>
+              </li>
+              <li><a href="/">International Admissions</a></li>
+            </ul>
+            <ul>
+              <li><a href="/">Degrees</a></li>
+              <li><a href="/">Certificates</a></li>
+              <li><a href="/">Online Programs</a></li>
+            </ul>
+            <ul>
+              <li><a href="/">Undergrad Admissions</a></li>
+              <li><a href="/">Graduate Admissions</a></li>
+              <li><a href="/">International Admissions</a>
                 <ul>
                   <li><a href="/">Degrees</a></li>
                   <li><a href="/">Certificates</a></li>
                   <li><a href="/">Online Programs</a></li>
+                  <li><a href="/">Research Focus Areas</a></li>
                 </ul>
-              <!-- column 2 -->
-              <!-- column 3 -->
-                <ul>
-                  <li><a href="/">Undergrad Admissions</a></li>
-                  <li><a href="/">Graduate Admissions</a></li>
-                  <li><a href="/">International Admissions</a>
-                      <ul>
-                        <li><a href="/">Degrees</a></li>
-                        <li><a href="/">Certificates</a></li>
-                        <li><a href="/">Online Programs</a></li>
-                        <li><a href="/">Research Focus Areas</a></li>
-                      </ul>
-                  </li>
-                  <li><a href="/">Find a mentor</a></li>
-                  <li><a href="/">Student Handbook</a></li>
-                </ul>
-              <!-- column 3 -->
-              <!-- column 4 -->
+              </li>
+              <li><a href="/">Find a mentor</a></li>
+              <li><a href="/">Student Handbook</a></li>
+            </ul>
             <ul>
               <li><a href="/">Undergrad Admissions</a></li>
               <li><a href="/">Graduate Admissions</a></li>
@@ -125,113 +122,88 @@ The intention is to only use one secondary item, a decorative image or call-to-a
                 </ul>
               </li>
             </ul>
-             <!-- column 4 -->
-          </div>
-        </ilw-header-megamenu-section>
-      </li>
-      <li>
-          <ilw-header-megamenu-section>
-              <span slot="label">Links, with decorative image aligned left</span>
-              <div>
-              <ul>
-                <li><a href="/">Undergrad Admissions</a></li>
-                <li><a href="/">Graduate Admissions</a></li>
-                <li><a href="/">International Admissions</a></li>
-                <li><a href="/">Degrees</a></li>
-                <li><a href="/">Certificates</a></li>
-              </ul>
-              <ul>
-                <li><a href="/">Undergrad Admissions</a></li>
-                <li><a href="/">Graduate Admissions</a></li>
-                <li><a href="/">International Admissions</a></li>
-                <li><a href="/">Degrees</a></li>
-                <li><a href="/">Certificates</a></li>
-              </ul>
-              <ul>
-                  <li><a href="/">Undergrad Admissions</a></li>
-                  <li><a href="/">Graduate Admissions</a></li>
-                  <li><a href="/">International Admissions</a>
-                      <ul>
-                        <li><a href="/">Degrees</a></li>
-                        <li><a href="/">Certificates</a></li>
-                        <li><a href="/">Online Programs</a></li>
-                        <li><a href="/">Research Focus Areas</a></li>
-                      </ul>
-                  </li>
-                  <li><a href="/">Find a mentor</a></li>
-                  <li><a href="/">Student Handbook</a></li>
-                </ul>
-              <img class="align-left" src="https://fastly.picsum.photos/id/1025/500/400.jpg?hmac=MPFZjsU2UG1Mr3SjMkYP2F9jnhQWyatt6soxbOj0TN4" alt="">  
-            </div>
-            </ilw-header-megamenu-section>
-      </li>
+          </ilw-header-megamenu-section>
+        </li>
         <li>
           <ilw-header-megamenu-section>
-              <span slot="label">Links with image call to action</span>
-              <div>
+            <span slot="label">Decorative Image</span>
+            <ul>
+              <li><a href="/">Undergrad Admissions</a></li>
+              <li><a href="/">Graduate Admissions</a></li>
+              <li><a href="/">International Admissions</a></li>
+              <li><a href="/">Degrees</a></li>
+              <li><a href="/">Certificates</a></li>
+            </ul>
+            <span slot="action-left" class="span-3"> 
+              <img src="https://fastly.picsum.photos/id/1025/500/400.jpg?hmac=MPFZjsU2UG1Mr3SjMkYP2F9jnhQWyatt6soxbOj0TN4" alt=""> 
+            </span>
+          </ilw-header-megamenu-section>
+        </li>
+        <li>
+          <ilw-header-megamenu-section>
+            <span slot="label">CTA with image</span>
+            <ul>
+              <li><a href="/">Undergrad Admissions</a></li>
+              <li><a href="/">Graduate Admissions</a></li>
+              <li><a href="/">International Admissions</a>
                 <ul>
-                  <li><a href="/">Undergrad Admissions</a></li>
-                  <li><a href="/">Graduate Admissions</a></li>
-                  <li><a href="/">International Admissions</a>
-                      <ul>
-                        <li><a href="/">Degrees</a></li>
-                        <li><a href="/">Certificates</a></li>
-                        <li><a href="/">Online Programs</a></li>
-                        <li><a href="/">Research Focus Areas</a></li>
-                      </ul>
-                  </li>
-                  <li><a href="/">Find a mentor</a></li>
-                  <li><a href="/">Student Handbook</a></li>
-                </ul>
-                 <span  slot="action" class="span-3">
-                  <p> Prospective students </p>
-                  <button class="ilw-button ilw-theme-orange-2">Link 2</button>
-                  <img src="https://picsum.photos/id/37/300/300" alt="">  
-                </span>
-                
-              </div>
-            </ilw-header-megamenu-section>
-</li>
-<li>
-            <ilw-header-megamenu-section>
-              <span slot="label">Links with plain call to action</span>
-              <div>
-                <ul>
-                  <li><a href="/">Undergrad Admissions</a></li>
-                  <li><a href="/">Graduate Admissions</a></li>
-                  <li><a href="/">International Admissions</a></li>
                   <li><a href="/">Degrees</a></li>
                   <li><a href="/">Certificates</a></li>
-                  <li><a href="/">Undergrad Admissions</a></li>
-                  <li><a href="/">Graduate Admissions</a></li>
-                  <li><a href="/">International Admissions</a></li>
+                  <li><a href="/">Online Programs</a></li>
+                  <li><a href="/">Research Focus Areas</a></li>
+                </ul>
+              </li>
+              <li><a href="/">Find a mentor</a></li>
+              <li><a href="/">Student Handbook</a></li>
+            </ul>
+            <span slot="action-left" class="">
+              <p> Prospective students </p>
+              <button class="ilw-button ilw-theme-orange-1">Link 2</button>
+              <img src="https://picsum.photos/id/37/300/300" alt="">
+            </span>
+          </ilw-header-megamenu-section>
+        </li>
+        <li>
+          <ilw-header-megamenu-section>
+            <span slot="label">Plain CTA</span>
+            <ul>
+              <li><a href="/">Undergrad Admissions</a></li>
+              <li><a href="/">Graduate Admissions</a></li>
+              <li><a href="/">International Admissions</a></li>
+              <li><a href="/">Degrees</a></li>
+              <li><a href="/">Certificates</a></li>
+              <li><a href="/">Undergrad Admissions</a></li>
+              <li><a href="/">Graduate Admissions</a></li>
+              <li><a href="/">International Admissions</a></li>
+              <li><a href="/">Degrees</a></li>
+              <li><a href="/">Certificates</a></li>
+            </ul>
+            <ul>
+              <li><a href="/">Undergrad Admissions</a></li>
+              <li><a href="/">Graduate Admissions</a></li>
+              <li><a href="/">International Admissions</a>
+                <ul>
                   <li><a href="/">Degrees</a></li>
                   <li><a href="/">Certificates</a></li>
+                  <li><a href="/">Online Programs</a></li>
+                  <li><a href="/">Research Focus Areas</a></li>
                 </ul>
-                <ul>
-                  <li><a href="/">Undergrad Admissions</a></li>
-                  <li><a href="/">Graduate Admissions</a></li>
-                  <li><a href="/">International Admissions</a>
-                      <ul>
-                        <li><a href="/">Degrees</a></li>
-                        <li><a href="/">Certificates</a></li>
-                        <li><a href="/">Online Programs</a></li>
-                        <li><a href="/">Research Focus Areas</a></li>
-                      </ul>
-                  </li>
-                  <li><a href="/">Find a mentor</a></li>
-                  <li><a href="/">Student Handbook</a></li>
-                </ul>
-                 <span  slot="action" class="span-2 align-left">
-                  <p> Prospective students </p>
-                  <button class="ilw-button ilw-theme-orange-2">Link 2</button>
-                </span>
-                
-              </div>
-            </ilw-header-megamenu-section>
-      </li>
-    </ul>
- </ilw-header-megamenu>
+              </li>
+              <li><a href="/">Find a mentor</a></li>
+              <li><a href="/">Student Handbook</a></li>
+            </ul>
+            <span slot="action-right" class="span-2">
+              <p> Prospective students </p>
+              <button class="ilw-button ilw-theme-orange-1">Link 2</button>
+            </span>
+            <span slot="action-left" class="span-2">
+              <p> Prospective students </p>
+              <button class="ilw-button ilw-theme-orange-1">Link 2</button>
+            </span>
+          </ilw-header-megamenu-section>
+        </li>
+      </ul>
+    </ilw-header-megamenu>
 ```
 
 ## Usability

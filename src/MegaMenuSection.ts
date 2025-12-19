@@ -271,7 +271,7 @@ export default class MegaMenuSection extends LitElement {
                         ? html`
                             <div class="list-wrapper">
                                 <slot name="action-left"></slot>
-                                <slot id="list-slot" class="border-end"></slot>
+                                <slot id="list-slot"></slot>
                                 <slot name="action-right"></slot>
                             </div>
                             `
