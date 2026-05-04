@@ -40,6 +40,8 @@ button, .link {
     height: 100%;
     width: 100%;
     border-bottom: var(--ilw-header-megamenu--link-border-bottom-highlight);
+    border-left: var(--ilw-header-megamenu--link-border-left-highlight);
+
     
     svg {
       padding: 2px;
@@ -128,7 +130,7 @@ button[aria-expanded="true"] {
         padding: 6px 0px 6px 20px;
       }
     & button {
-        padding: 6px 20px 6px 8px;
+        padding: 6px 20px 6px 6px;
     }
 }
 
@@ -167,7 +169,7 @@ button[aria-expanded="true"] {
 }
 
 .menu.parent .compact button.arrow-only:hover, .menu.parent .compact button.arrow-only:focus {
-  border-left: 4px solid transparent !important;
+  border-left: 4px solid var(--il-blue) !important;
   color: var(--il-blue);
 }
 

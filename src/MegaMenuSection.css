@@ -16,6 +16,9 @@ ilw-header-megamenu-section[linked] a[slot="link"] {
    border-style: solid;
    border-color: transparent;
    border-bottom: var(--ilw-header-megamenu--link-border-bottom-highlight);
+   border-left: var(--ilw-header-megamenu--link-border-left-highlight);
+
+
 
    &:hover {
        background: var(--ilw-header-megamenu--link-background--hover);
@@ -199,6 +202,7 @@ ilw-header-megamenu-section {
 ilw-header-megamenu[compact] ilw-header-megamenu-section {
     display: block;
     border-bottom: 1px solid var(--il-storm-lighter-3);
+
             a {              
                 &:focus {
                   background: var(--ilw-header-megamenu--link-background--sub--focus);
@@ -235,7 +239,8 @@ ilw-header-megamenu[compact] ilw-header-megamenu-section {
 
 
         a {     
-            
+            border-left: var(--ilw-header-megamenu--link-border-left-highlight);
+            border-bottom: none;
             
                 &:focus {
                   background: var(--ilw-header-megamenu--link-background--sub--focus);
@@ -251,6 +256,7 @@ ilw-header-megamenu[compact] ilw-header-megamenu-section {
     }
 
 }
+
 
 ilw-header-megamenu[compact] ilw-header-megamenu-section ilw-header-megamenu-section {
     border-bottom: none;
