@@ -5,8 +5,9 @@
       --ilw-header-megamenu--link-color--hover: var(--il-altgeld);
       --ilw-header-megamenu--link-background: transparent;
       --ilw-header-megamenu--link-background--hover: white;
-      --ilw-header-megamenu--link-background--focus: var(--il-arches-90);
-      --ilw-header-megamenu--link-background--sub--focus: var(--il-arches-90);
+      --ilw-header-megamenu--link-background--focus: var(--ilw-color--focus--background);
+      --ilw-header-megamenu--link-background--sub--focus: var(--ilw-color--focus--background);
+      --ilw-header-megamenu--link-color--focus: var(--il-blue);
       --ilw-header-megamenu--link-border-bottom-highlight: 4px solid transparent;
       --ilw-header-megamenu--link-border-bottom-highlight--hover: 4px solid var(--il-orange);
       --ilw-header-megamenu--link-border-bottom-highlight--focus: 4px solid var(--il-blue);

@@ -27,6 +27,7 @@ ilw-header-megamenu-section[linked] a[slot="link"] {
    &:focus {
      background: var(--ilw-header-megamenu--link-background--focus);
      border-bottom: var(--ilw-header-megamenu--link-border-bottom-highlight--focus);
+     color: var(--ilw-header-megamenu--link-color--focus);
    }
 }
 
@@ -39,6 +40,7 @@ ilw-header-megamenu-section[linked][aria-current="page"] a[slot="link"] {
   
     &:focus {
         border-bottom: var(--ilw-header-megamenu--link-border-bottom-highlight--focus);
+        color: var(--ilw-header-megamenu--link-color--focus)
     }
 }
 
@@ -79,15 +81,15 @@ ilw-header-megamenu-section {
         font-weight: bold;
         color: var(--il-blue);
         font-family: "Source Sans", sans-serif;
-         margin-top: -30px;
-         width: 50%;
-         z-index: 1;
+        margin-top: -30px;
+        width: 50%;
+        z-index: 1;
         
     }
 
     span[slot="action-right"] button:first-of-type, span[slot="action-left"] button:first-of-type  {
         display: block;
-          position: absolute;
+        position: absolute;
         top: 50%;             
         left: 50%;           
         transform: translate(-50%, -50%); 
@@ -95,11 +97,7 @@ ilw-header-megamenu-section {
         margin-top: 30px;
     }
 
-     
-
-
-
-
+    
     
     ul{
        
@@ -136,6 +134,7 @@ ilw-header-megamenu-section {
                 --ilw-header-megamenu--link-border-left-highlight: 4px solid transparent;
                 --ilw-header-megamenu--link-border-left-highlight--hover: 4px solid var(--il-orange);
                 --ilw-header-megamenu--link-border-left-highlight--focus: 4px solid var(--il-blue);
+                --ilw-header-megamenu--link-color--focus: var(--il-blue);
                 --ilw-header-megamenu--link-border-bottom-highlight: 4px solid transparent;;
                 --ilw-header-megamenu--link-border-bottom-highlight--focus: initial;
                 --ilw-header-megamenu--link-border-bottom-highlight--hover: 4px solid transparent;;
@@ -149,7 +148,7 @@ ilw-header-megamenu-section {
                 font: var(--ilw-header-megamenu--font);
                 font-weight: bold;
                 background: transparent;
-                color: var(--il-blue);
+                color: var(--ilw-header-megamenu--link-color);
                 outline: 0;
                 cursor: pointer;
                 border-top: var(--ilw-header-megamenu-section--anchor--border);
@@ -167,7 +166,9 @@ ilw-header-megamenu-section {
                 &:focus {
                   background: var(--ilw-header-megamenu--link-background--sub--focus);
                   border-bottom: var(--ilw-header-megamenu--link-border-left-highlight--focus);
+                  color: var(--ilw-header-megamenu--link-color--focus);
                 }
+
             }
         }
     }   
@@ -202,6 +203,7 @@ ilw-header-megamenu[compact] ilw-header-megamenu-section {
                 &:focus {
                   background: var(--ilw-header-megamenu--link-background--sub--focus);
                   border-left: var(--ilw-header-megamenu--link-border-left-highlight--focus);
+                  color: var(--ilw-header-megamenu--link-color--focus);
                 }
             }
 
@@ -239,6 +241,7 @@ ilw-header-megamenu[compact] ilw-header-megamenu-section {
                   background: var(--ilw-header-megamenu--link-background--sub--focus);
                   border-left: var(--ilw-header-megamenu--link-border-left-highlight--focus);
                   border-bottom: none;
+                  color: var(--ilw-header-megamenu--link-color--focus);
                 }
             }
 

@@ -66,6 +66,15 @@ button, .link {
       background: var(--ilw-header-megamenu--link-background--focus);
       border-bottom: var(--ilw-header-megamenu--link-border-bottom-highlight--focus);
       border-left: var(--ilw-header-megamenu--link-border-left-highlight--focus);
+      color: var(--ilw-header-megamenu--link-color--focus);
+      fill: var(--ilw-header-megamenu--link-color--focus);
+      outline: 0;
+    }
+
+    &:focus:hover {
+      svg {
+        outline: 2px dotted var(--il-blue);
+      }
     }
 }
 
@@ -86,6 +95,7 @@ button[aria-expanded="true"] {
 
     &:focus {
       background: var(--ilw-header-megamenu--link-background--hover);
+      color: var(--il-blue);
     }
   }
 }
@@ -153,10 +163,12 @@ button[aria-expanded="true"] {
 
 .submenu.parent button.arrow-only:hover, .submenu.parent button.arrow-only:focus {
   border-left: 4px solid transparent !important;
+  color: var(--il-blue);
 }
 
 .menu.parent .compact button.arrow-only:hover, .menu.parent .compact button.arrow-only:focus {
   border-left: 4px solid transparent !important;
+  color: var(--il-blue);
 }
 
 
