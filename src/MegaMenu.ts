@@ -2,7 +2,7 @@ import { LitElement, html, unsafeCSS, CSSResultGroup } from "lit";
 // @ts-ignore
 import styles from './MegaMenu.styles.css?inline';
 import './MegaMenu.css';
-import { customElement, property } from "lit/decorators.js";
+import { customElement, property, state } from "lit/decorators.js";
 import MegaMenuSection from "./MegaMenuSection";
 
 @customElement("ilw-header-megamenu")
@@ -18,6 +18,10 @@ export default class MegaMenu extends LitElement {
         type: Number
     })
     width = 990;
+
+    @state()
+    _hasSlots: Record<string, boolean> = {}
+    
 
     static get styles() : CSSResultGroup {
         return unsafeCSS(styles);
@@ -129,10 +133,39 @@ export default class MegaMenu extends LitElement {
         this.getSections().forEach(s => { if (target == null || target != s) { s.expanded = false; } });
     }
 
+    /**
+     * Tracks the number of secondary items (images and call-to-action) in the menu section so we can
+     * limit the number of secondary items to 1, either left or right.
+     *
+     * @private
+     */
+    _slotsChanged() {
+        let slots = this.shadowRoot!.querySelectorAll("slot");
+
+        let hasSlots: Record<string, boolean> = {};
+        for (let slot of slots) {
+            if (slot.name && slot.assignedElements().length > 0) {
+                hasSlots[slot.name] = true;
+            }
+        }
+        this._hasSlots = hasSlots;
+    }
+
     render() {
         return html`
             <nav aria-label="Header Menu Navigation" @ilw-header-megamenu-section-expanded=${this.handleNavigationSectionToggleClick}>
-                <div class="parent ${this.compact ? 'compact' : 'full'}"><slot></slot></div>
+                <div class="parent ${this.compact ? 'compact' : 'full'}">
+                        <slot
+                            name="action-left"
+                            @slotchange=${this._slotsChanged}
+                        ></slot>
+                        <slot></slot>
+                        <slot
+                            name="action-right"
+                            @slotchange=${this._slotsChanged}
+                        ></slot>
+                    
+                </div>
             </nav>
         `;
     }
