@@ -21,7 +21,7 @@ The ilw-header-megamenu should contain an unordered list. Each list item can con
 Within each `ilw-header-megamenu-section` or `ilw-header-megamenu-section linked="true"` you can choose:
 - a basic unordered list of less than 20 links and no nesting. Each list item will be divided into groups of 5 or less. Adding more than 20 items will result in missing links. To make a solo-list use `class="solo-list"` otherwise you will get a list that only fills the first column.
 OR
-- four seperated lists of links with nesting. Each new list will become it's own column. You can have as many list items as you want using this method. Note that more than four lists can result in wrapped columns and is an unintended use.
+- four seperated lists of links with nesting. Each new list will become it's own column. You can have as many list items within a list as you need using this method. Note that this has been specifically designed for a maximum of four columns, using more than four lists is *not advised* and will result in wrapped columns.
 
 Optional action-left and action-right slots can contain:
 - a decorative image
@@ -134,7 +134,7 @@ Optional action-left and action-right slots can contain:
               <li><a href="/">Degrees</a></li>
               <li><a href="/">Certificates</a></li>
             </ul>
-            <span slot="action-left" class="span-3"> 
+            <span slot="action-left" > 
               <img src="https://fastly.picsum.photos/id/1025/500/400.jpg?hmac=MPFZjsU2UG1Mr3SjMkYP2F9jnhQWyatt6soxbOj0TN4" alt=""> 
             </span>
           </ilw-header-megamenu-section>
@@ -156,7 +156,7 @@ Optional action-left and action-right slots can contain:
               <li><a href="/">Find a mentor</a></li>
               <li><a href="/">Student Handbook</a></li>
             </ul>
-            <span slot="action-left" class="">
+            <span slot="action-left" class="span-3">
               <p> Prospective students </p>
               <button class="ilw-button ilw-theme-orange-1">Link 2</button>
               <img src="https://picsum.photos/id/37/300/300" alt="">
@@ -186,17 +186,14 @@ Optional action-left and action-right slots can contain:
                   <li><a href="/">Degrees</a></li>
                   <li><a href="/">Certificates</a></li>
                   <li><a href="/">Online Programs</a></li>
-                  <li><a href="/">Research Focus Areas</a></li>
+                  <li><a href="/">Research Focus Areas</a>
+                  </li>
                 </ul>
               </li>
               <li><a href="/">Find a mentor</a></li>
               <li><a href="/">Student Handbook</a></li>
             </ul>
             <span slot="action-right" class="span-2">
-              <p> Prospective students </p>
-              <button class="ilw-button ilw-theme-orange-1">Link 2</button>
-            </span>
-            <span slot="action-left" class="span-2">
               <p> Prospective students </p>
               <button class="ilw-button ilw-theme-orange-1">Link 2</button>
             </span>
@@ -207,7 +204,7 @@ Optional action-left and action-right slots can contain:
 ```
 
 ## Usability
-When creating menus, do not include all your links inside the menu. Just focus on the high-level links, and rely on breadcrumbs and side menus for internal links. Having a large menu system reduces usability.
+When creating menus, do not include all your links inside the menu. Just focus on the high-level links, and rely on breadcrumbs and side menus for internal links. Having a large menu system reduces usability. 
 
 While it is tempting to hide your menu with the hamburger menu option, only do this if you have no other option. Hamburger menus harm usability because it hides the top-level categories and reduces the ability for users to browse to find what they want, especially for new users.
 

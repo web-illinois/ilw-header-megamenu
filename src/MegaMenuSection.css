@@ -217,9 +217,9 @@ ilw-header-megamenu[compact] ilw-header-megamenu-section {
     }
 
 
-    img{
+    /* img{
         display: none;
-    }
+    } */
 
     div { 
         display: block;
