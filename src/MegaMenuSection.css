@@ -48,18 +48,22 @@ ilw-header-megamenu-section[linked][aria-current="page"] a[slot="link"] {
 }
 
 ilw-header-megamenu-section {
-   
 
     img{
+        display: none;
+    }
+
+     span[slot="action-right"], span[slot="action-left"]{
+        position: relative;
+    }
+
+    span[slot="action-right"] img, span[slot="action-left"] img{
+        display: inline;
         margin: 36px;
         object-fit: cover;
         border-radius: 30px;
         width: calc(100% - 72px);
         height: auto;
-    }
-
-     span[slot="action-right"], span[slot="action-left"]{
-        position: relative;
     }
 
     span[slot="action-right"]:has(p + button) img, span[slot="action-left"]:has(p + button) img  {
@@ -179,9 +183,6 @@ ilw-header-megamenu-section {
 }
 
 
-ilw-header-megamenu-section:has(span[slot="action-right"] + span[slot="action-left"]) span[slot="action-right"] {
-        display: none;
-    }
 
 ilw-header-megamenu-section {
     ilw-header-megamenu-section {

@@ -226,3 +226,7 @@ div.list-wrapper{
 ::slotted([slot="action-left"].span-3) {
   grid-column: 1 / span 3; 
 }
+
+.hidden{
+  display: none;
+}
