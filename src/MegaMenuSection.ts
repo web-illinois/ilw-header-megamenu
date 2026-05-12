@@ -198,13 +198,13 @@ export default class MegaMenuSection extends LitElement {
         }
 
     render() {
-        const actionSpan = this.querySelector('span[slot="action"]');
+        const actionSpan = this.querySelector('span[slot="action-left"], span[slot="action-right"]');
         let actionId: string | null = null;
         if (actionSpan) {
                 const pText = actionSpan.querySelector('p')?.textContent?.trim() || '';
                 let link = actionSpan.querySelector('a, button');
                 if (pText) {
-                actionId = `action-${pText.replace(/\s+/g, '-')}`; // normalize spaces
+                actionId = `action-${pText.replace(/\s+/g, '-')}`;
                 actionSpan.id = actionId;
             }  
             if (link && actionId) {
