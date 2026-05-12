@@ -18,6 +18,7 @@ export default class MegaMenu extends LitElement {
         type: Number
     })
     width = 990;
+    
 
     static get styles() : CSSResultGroup {
         return unsafeCSS(styles);
@@ -129,10 +130,14 @@ export default class MegaMenu extends LitElement {
         this.getSections().forEach(s => { if (target == null || target != s) { s.expanded = false; } });
     }
 
+
+
     render() {
         return html`
             <nav aria-label="Header Menu Navigation" @ilw-header-megamenu-section-expanded=${this.handleNavigationSectionToggleClick}>
-                <div class="parent ${this.compact ? 'compact' : 'full'}"><slot></slot></div>
+                <div class="parent ${this.compact ? 'compact' : 'full'}">
+                        <slot></slot>
+                </div>
             </nav>
         `;
     }

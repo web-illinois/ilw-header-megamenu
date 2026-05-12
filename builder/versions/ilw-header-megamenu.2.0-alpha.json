@@ -1,0 +1,76 @@
+{
+    "title": "Header Mega Menu",
+    "tag": "ilw-header-megamenu",
+    "github": "https://github.com/web-illinois/ilw-header-megamenu/",
+    "type": "web component",
+    "element-name": "ilw-header-megamenu",
+    "description": "Mega Menu for the top of the page.",
+    "builder-version": "latest",
+    "version": "2.0-alpha",
+    "date": "11/06/2025",
+    "css": "https://dev.toolkit.illinois.edu/ilw-header-megamenu/latest/ilw-header-megamenu.css",
+    "js": "https://dev.toolkit.illinois.edu/ilw-header-megamenu/latest/ilw-header-megamenu.js",
+    "production": false,
+    "notes": "",
+    "parent-style": "",
+    "samples": [
+        {
+            "name": "Default",
+            "description": "Default Links",
+            "text": "<ul> <li> <ilw-header-megamenu-section class='solo-list'> <span slot='label'>About</span> <ul> <li><a href='/'>Directory</a></li> <li><a href='/'>Departments</a></li> <li><a href='/'>News</a></li> <li><a href='/'>Events</a></li> <li><a href='/'>Careers</a></li> <li><a href='/'>Contact</a></li> <li><a href='/'>Visit</a></li> </ul> </ilw-header-megamenu-section> </li> <li> <ilw-header-megamenu-section> <span slot='label'>Admissions</span> <ul> <li><a href='/'>Undergrad Admissions</a> <ul> <li><a href='/'>Apply</a></li> <li><a href='/'>Majors</a></li> <li><a href='/'>Cost and Aid</a></li> </ul> </li> </ul> <ul> <li><a href='/'>Graduate Admissions</a> <ul> <li><a href='/'>Apply</a></li> <li><a href='/'>Majors</a></li> <li><a href='/'>Cost and Aid</a></li> </ul> </li> </ul> <ul> <li><a href='/'>International Admissions</a></li> </ul> </ilw-header-megamenu-section> </li> <li> <ilw-header-megamenu-section class='solo-list'> <span slot='label'>Academics</span> <ul> <li><a href='/'>Degrees</a></li> <li><a href='/'>Honors Programs</a></li> <li><a href='/'>Online Programs</a></li> <li><a href='/'>Certificates</a></li> <li><a href='/'>Academic Calendar</a></li> </ul> </ilw-header-megamenu-section> </li> <li> <ilw-header-megamenu-section class='solo-list'> <span slot='label'>Research</span> <ul> <li><a href='/'>Research Centers</a></li> <li><a href='/'>History</a></li> <li><a href='/'>Resources</a> </ul> </span> </ilw-header-megamenu-section> </li> <li> <ilw-header-megamenu-section class='solo-list'> <span slot='label'>Community</span> <ul> <li><a href='/'>Visit</a></li> <li><a href='/'>Student Life</a></li> <li><a href='/'>Public Events</a></li> <li><a href='/'>First-Gen Services</a></li> </ul> </ilw-header-megamenu-section> </li> <li> <ilw-header-megamenu-section class='solo-list'> <span slot='label'>Alumni</span> <ul> <li><a href='/'>Get Involved</a></li> <li><a href='/'>Awards</a></li> <li><a href='/'>Give</a></li> <li><a href='/'>Events</a></li> </ul> </ilw-header-megamenu-section> </li> </ul>"
+        },
+        {
+            "name": "All Variations",
+            "description": "Includes every variation of the mega menu settings",
+            "text": "<ul> <li> <ilw-header-megamenu-section class='solo-list'> <span slot='label'>Single Unordered List</span> <ul> <li><a href='/'>Undergrad Admissions</a></li> <li><a href='/'>Graduate Admissions</a></li> <li><a href='/'>International Admissions</a></li> <li><a href='/'>Degrees</a></li> <li><a href='/'>Certificates</a></li> <li><a href='/'>Online Programs</a></li> <li><a href='/'>Research Focus Areas</a></li> <li><a href='/'>Find a mentor</a></li> <li><a href='/'>Degrees</a></li> <li><a href='/'>Certificates</a></li> <li><a href='/'>Online Programs</a></li> <li><a href='/'>Undergrad Admissions</a></li> <li><a href='/'>Graduate Admissions</a></li> <li><a href='/'>Online Programs</a></li> <li><a href='/'>Research Focus Areas</a></li> <li><a href='/'>Find a mentor</a></li> <li><a href='/'>Degrees</a></li> <li><a href='/'>Certificates</a></li> <li><a href='/'>Online Programs</a></li> <li><a href='/'>Undergrad Admissions</a></li> <li><a href='/'>Graduate Admissions</a></li> </ul> </ilw-header-megamenu-section> </li> <li> <ilw-header-megamenu-section> <span slot='label'>Distinct Columns</span> <ul> <li><a href='/'>Undergrad Admissions</a> <ul> <li><a href='/'>Apply</a></li> <li><a href='/'>Majors</a></li> <li><a href='/'>Cost and Aid</a></li> </ul> </li> <li><a href='/'>Graduate Admissions</a> <ul> <li><a href='/'>Apply</a></li> <li><a href='/'>Majors</a></li> <li><a href='/'>Cost and Aid</a></li> </ul> </li> <li><a href='/'>International Admissions</a></li> </ul> <ul> <li><a href='/'>Degrees</a></li> <li><a href='/'>Certificates</a></li> <li><a href='/'>Online Programs</a></li> </ul> <ul> <li><a href='/'>Undergrad Admissions</a></li> <li><a href='/'>Graduate Admissions</a></li> <li><a href='/'>International Admissions</a> <ul> <li><a href='/'>Degrees</a></li> <li><a href='/'>Certificates</a></li> <li><a href='/'>Online Programs</a></li> <li><a href='/'>Research Focus Areas</a></li> </ul> </li> <li><a href='/'>Find a mentor</a></li> <li><a href='/'>Student Handbook</a></li> </ul> <ul> <li><a href='/'>Undergrad Admissions</a></li> <li><a href='/'>Graduate Admissions</a></li> <li><a href='/'>International Admissions</a> <ul> <li><a href='/'>Degrees</a></li> <li><a href='/'>Certificates</a></li> <li><a href='/'>Online Programs</a></li> <li><a href='/'>Research Focus Areas</a></li> </ul> </li> </ul> </ilw-header-megamenu-section> </li> <li> <ilw-header-megamenu-section> <span slot='label'>Decorative Image</span> <ul> <li><a href='/'>Undergrad Admissions</a></li> <li><a href='/'>Graduate Admissions</a></li> <li><a href='/'>International Admissions</a></li> <li><a href='/'>Degrees</a></li> <li><a href='/'>Certificates</a></li> </ul> <span slot='action-left' class='span-3'> <img src='https://fastly.picsum.photos/id/1025/500/400.jpg?hmac=MPFZjsU2UG1Mr3SjMkYP2F9jnhQWyatt6soxbOj0TN4' alt=''> </span> </ilw-header-megamenu-section> </li> <li> <ilw-header-megamenu-section> <span slot='label'>CTA with image</span> <ul> <li><a href='/'>Undergrad Admissions</a></li> <li><a href='/'>Graduate Admissions</a></li> <li><a href='/'>International Admissions</a> <ul> <li><a href='/'>Degrees</a></li> <li><a href='/'>Certificates</a></li> <li><a href='/'>Online Programs</a></li> <li><a href='/'>Research Focus Areas</a></li> </ul> </li> <li><a href='/'>Find a mentor</a></li> <li><a href='/'>Student Handbook</a></li> </ul> <span slot='action-left' class=''> <p> Prospective students </p> <button class='ilw-button ilw-theme-orange-1'>Link 2</button> <img src='https://picsum.photos/id/37/300/300' alt=''> </span> </ilw-header-megamenu-section> </li> <li> <ilw-header-megamenu-section> <span slot='label'>Plain CTA</span> <ul> <li><a href='/'>Undergrad Admissions</a></li> <li><a href='/'>Graduate Admissions</a></li> <li><a href='/'>International Admissions</a></li> <li><a href='/'>Degrees</a></li> <li><a href='/'>Certificates</a></li> <li><a href='/'>Undergrad Admissions</a></li> <li><a href='/'>Graduate Admissions</a></li> <li><a href='/'>International Admissions</a></li> <li><a href='/'>Degrees</a></li> <li><a href='/'>Certificates</a></li> </ul> <ul> <li><a href='/'>Undergrad Admissions</a></li> <li><a href='/'>Graduate Admissions</a></li> <li><a href='/'>International Admissions</a> <ul> <li><a href='/'>Degrees</a></li> <li><a href='/'>Certificates</a></li> <li><a href='/'>Online Programs</a></li> <li><a href='/'>Research Focus Areas</a></li> </ul> </li> <li><a href='/'>Find a mentor</a></li> <li><a href='/'>Student Handbook</a></li> </ul> <span slot='action-right' class='span-2'> <p> Prospective students </p> <button class='ilw-button ilw-theme-orange-1'>Link 2</button> </span> <span slot='action-left' class='span-2'> <p> Prospective students </p> <button class='ilw-button ilw-theme-orange-1'>Link 2</button> </span> </ilw-header-megamenu-section> </li> </ul>"
+        }
+    ],
+    "attributes-fixed": [],
+    "attributes-text": [],
+    "attributes": [
+        {
+            "name": "compact",
+            "description": "Whether or not it is compact",
+            "deprecated": false,
+            "values": [
+                "",
+                "true"
+            ]
+        },
+        {
+            "name": "width",
+            "description": "The width it switches to compact, in pixels. Must be a number. Default is 990.",
+            "deprecated": false,
+            "values": [
+                "",
+                "990"
+            ]
+        }
+    ],
+    "classes-fixed": [
+        {
+            "name": "wrapper-list",
+            "description": "allows you to break mulitple uls within a slot into a 4 column grid",
+            "deprecated": false
+        }
+    ],
+    "classes": [
+        {
+            "name": "solo-list",
+            "description": "allows you to have a single list with a fixed background height and fills up the 4 columns, maxing out at 20 items with no nesting",
+            "deprecated": false
+        },
+        {
+            "name": "span-2",
+            "description": "Allows a secondary item to fill up two columns at a time",
+            "deprecated": false
+        },
+        {
+            "name": "span-3",
+            "description": "Allows a secondary item to fill up three columns at a time",
+            "deprecated": false
+        }
+    ],
+    "css-variables": [
+    ]
+}
