@@ -210,7 +210,7 @@ While it is tempting to hide your menu with the hamburger menu option, only do t
 
 ## Accessibility Notes and Use
 
-Note from Keith: 
+Note from Campus ADA Coordinator: 
    - Navigation / Menus are unique in that most screen reader users will only expect linked items to exist inside of this element role. This means that any headings or static text should be avoided since they will likely be missed by this audience.
 
 ### Keyboard navigation
@@ -224,6 +224,6 @@ Note from Keith:
 - Each toggle button will get the attributes: `aria-haspopup="true"`, `aria-expanded="true"`, `aria-controls="parent-name-menu"` and `aria-label="parent-name submenu`. The SVG will get `aria-hidden="true"`
 - For call to action items, the paragraph will get: `id="parent-name-action-text"` and the clickable element will receive `aria-describedby="parent-name-action-text"`.
 
-## External References
+## References
 
 See [ilw-header-menu documentation](https://github.com/web-illinois/ilw-header-menu)
