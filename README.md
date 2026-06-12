@@ -221,8 +221,7 @@ Note from Keith:
 - Focus stays on the same menu item when the browser changes sizes to switch between mega and hamburger menu
 
 ### ARIA
-- Each toggle button will get the attributes: `aria-haspopup="true"`, `aria-expanded="true"`, `aria-controls="parent-name-menu"` and `aria-label="Toggle parent-name submenu`. The SVG will get `aria-hidden="true"`
-- Each section will get a unique id and label, example: `id="parent-name-menu"` and `aria-label="About submenu"`
+- Each toggle button will get the attributes: `aria-haspopup="true"`, `aria-expanded="true"`, `aria-controls="parent-name-menu"` and `aria-label="parent-name submenu`. The SVG will get `aria-hidden="true"`
 - For call to action items, the paragraph will get: `id="parent-name-action-text"` and the clickable element will receive `aria-describedby="parent-name-action-text"`.
 
 ## External References
