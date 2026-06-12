@@ -212,7 +212,7 @@ ilw-header-megamenu[compact] ilw-header-megamenu-section {
                 }
             }
 
-    span[slot="action-left"] {
+    span[slot="action-left"], span[slot="action-right"]{
         display: block;
         min-height: 250px;
     }
