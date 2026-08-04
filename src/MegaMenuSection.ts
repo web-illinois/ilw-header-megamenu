@@ -236,27 +236,9 @@ export default class MegaMenuSection extends LitElement {
         });
 
         let isSubMenu = this.parentElement != null && this.parentElement.closest("ilw-header-megamenu-section") != null;
-        let isSolo = this.parentElement != null && this.parentElement.closest("ilw-header-megamenu-section") != null;
 
         this.current = this.current || (this.getAttribute('aria-current') != null && (this.getAttribute('aria-current') === 'page' || this.getAttribute('aria-current') === 'true'));
         
-        var withLink = html`
-            <div class="header-link ${this.mouseover ? "highlighted" : ""} ${this.compact ? "compact" : ""} ${this.current ? "current" : ""}" @mouseover="${this.toggleMouseOver.bind(this)}"  @mouseout="${this.toggleMouseOver.bind(this)}">
-                <slot name="link"></slot>
-                <button class="arrow-only" @click=${this.handleToggleClick.bind(this)} aria-expanded=${this.expanded ? 'true' : 'false'} aria-label=${this.querySelector('a[slot="link"]')?.textContent + ' submenu'} aria-controls="items">
-                    ${this.renderArrow()}
-                </button>
-            </div>
-        `;
-        
-        var withoutLink = html`
-            <button class="${this.current ? "current" : ""}" @click=${this.handleToggleClick.bind(this)} aria-expanded=${this.expanded ? 'true' : 'false'} aria-controls="items">
-                <div class="header">
-                    <div class="label"><slot name="label"></slot> </div>
-                    <div class="icon">${this.renderArrow()}</div>
-                </div>
-            </button>
-        `;
 
 
         const isSoloList = this.classList.contains('solo-list');
@@ -265,7 +247,12 @@ export default class MegaMenuSection extends LitElement {
         
         return html`
             <div class="${isSubMenu ? 'submenu' : 'menu'} parent" @ilw-header-megamenu-section-expanded=${this.handleNavigationSectionToggleClick}>
-                ${this.linked ? withLink : withoutLink}
+                <button class="${this.current ? "current" : ""}" @click=${this.handleToggleClick.bind(this)} aria-expanded=${this.expanded ? 'true' : 'false'} aria-controls="items">
+                <div class="header">
+                    <div class="label"><slot name="label"></slot> </div>
+                    <div class="icon">${this.renderArrow()}</div>
+                </div>
+            </button>
                 <div id="items" class="${this.expanded ? 'expanded' : ''}">
                     ${needsWrapper
                         ? html`
