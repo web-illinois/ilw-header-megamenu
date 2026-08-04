@@ -27,12 +27,6 @@ export default class MegaMenuSection extends LitElement {
     })
     mouseover = false;
 
-    @property({
-        reflect: true,
-        type: Boolean
-    })
-    linked = false;
-
     static get styles() {
         return unsafeCSS(styles);
     }
@@ -73,29 +67,14 @@ export default class MegaMenuSection extends LitElement {
         return this.parentElement && this.parentElement.closest('ilw-header-megamenu-section') != null;
     }
 
-    isOnAnchorInLinked() {
-        return this.linked && document.activeElement && document.activeElement.tagName === 'A';
-    }
 
-    isOnButtonInLinked() {
-        return this.linked && document.activeElement && document.activeElement.tagName === 'ILW-HEADER-MEGAMENU-SECTION';
-    }
+   setFocus() {
+    const button = this.shadowRoot?.querySelector('button');
 
-    setFocus(useButton: Boolean = false) {
-        let newNode: Element | null = null;
-        if (this.linked && !useButton) {
-            newNode = this.querySelector('a');
-        }
-        else if (this.shadowRoot) {
-            newNode = this.shadowRoot.querySelector('a');
-            if (newNode == null) {
-                newNode = this.shadowRoot.querySelector('button');
-            }
-        }
-        if (newNode != null) {
-            (newNode as HTMLElement).focus();
-        }
+    if (button) {
+        button.focus();
     }
+}
 
 
     moveToNextItem() {
