@@ -31,10 +31,6 @@ export default class MegaMenuSection extends LitElement {
         return unsafeCSS(styles);
     }
 
-    constructor() {
-        super();
-        this.addEventListener('keydown', this.handleWindowKeydown.bind(this));
-    }
 
     handleToggleClick(evt: Event) {
         this.expanded = !this.expanded;
@@ -195,7 +191,7 @@ export default class MegaMenuSection extends LitElement {
         const needsWrapper = !isSoloList;
         
         return html`
-            <div class="${isSubMenu ? 'submenu' : 'menu'} parent" @ilw-header-megamenu-section-expanded=${this.handleNavigationSectionToggleClick} >
+            <div class="${isSubMenu ? 'submenu' : 'menu'} parent" @ilw-header-megamenu-section-expanded=${this.handleNavigationSectionToggleClick} @keydown=${this.handleWindowKeydown}>
                 <button class="${this.current ? "current" : ""}" @click=${this.handleToggleClick.bind(this)} aria-expanded=${this.expanded ? 'true' : 'false'} aria-controls="items">
                     <div class="header">
                         <div class="label"><slot name="label"></slot> </div>
