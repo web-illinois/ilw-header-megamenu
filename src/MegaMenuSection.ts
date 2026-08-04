@@ -63,10 +63,6 @@ export default class MegaMenuSection extends LitElement {
         }
     }
 
-    isEmbedded() {
-        return this.parentElement && this.parentElement.closest('ilw-header-megamenu-section') != null;
-    }
-
 
    setFocus() {
     const button = this.shadowRoot?.querySelector('button');
@@ -78,7 +74,7 @@ export default class MegaMenuSection extends LitElement {
 
 
     moveToNextItem() {
-        if (!this.expanded && !this.isEmbedded()) {
+        if (!this.expanded) {
             this.expanded = true;
         }
 
@@ -199,7 +195,7 @@ export default class MegaMenuSection extends LitElement {
         const needsWrapper = !isSoloList;
         
         return html`
-            <div class="${isSubMenu ? 'submenu' : 'menu'} parent" @ilw-header-megamenu-section-expanded=${this.handleNavigationSectionToggleClick}>
+            <div class="${isSubMenu ? 'submenu' : 'menu'} parent" @ilw-header-megamenu-section-expanded=${this.handleNavigationSectionToggleClick} >
                 <button class="${this.current ? "current" : ""}" @click=${this.handleToggleClick.bind(this)} aria-expanded=${this.expanded ? 'true' : 'false'} aria-controls="items">
                     <div class="header">
                         <div class="label"><slot name="label"></slot> </div>
