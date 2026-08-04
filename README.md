@@ -6,9 +6,9 @@ Links: **[ilw-header-megamenu in Builder](https://builder3.toolkit.illinois.edu/
 
 ## Overview
 
-An Illinois Mega Menu utilizes the standard design of the header menu, including the ability to have a link and toggle dropdown or just a static label with toggle dropdown. The difference will be the dropdown takes up the full-width of the container maxing out at 1270px, slightly exceeding the length of the main nav bar items. Each dropdown section has a maximum of 4 columns, evenly spaced with a diving bar between each.
+An Illinois Mega Menu utilizes the standard design of the header menu, limited to only dropdown labels or singular links for top level items, no link combination toggles. The dropdown itself takes up the full-width of the container maxing out at 1270px, slightly exceeding the length of the main nav bar items. Each dropdown section has a maximum of 4 columns, evenly spaced with a diving bar between each.
 
-The mega menu is not suited for more than 1 layer of nested lists, if you require more, use the original ilw-header-menu with nested ilw-header-menu-sections instead (flyout menu).
+The Mega Menu is not suited for more than 1 layer of nested lists, if you require more, use the original ilw-header-menu with nested ilw-header-menu-sections instead (flyout menu).
 
 ---------
 
@@ -16,9 +16,9 @@ The ilw-header-megamenu should contain an unordered list. Each list item can con
 
 - a simple link or button (`<a>` or `<button>`)
 - an <ilw-header-megamenu-section> that contains a span and at least one unordered list of links. The span should contain `slot="label"`.
-- an <ilw-header-megamenu-section linked="true"> that contains an anchor and at least one unordered list of links. The anchor should contain `slot="link"`.
 
-Within each `ilw-header-megamenu-section` or `ilw-header-megamenu-section linked="true"` you can choose:
+
+Within each `ilw-header-megamenu-section` you can choose:
 - a basic unordered list of less than 20 links and no nesting. Each list item will be divided into groups of 5 or less. Adding more than 20 items will result in missing links. To make a solo-list use `class="solo-list"` otherwise you will get a list that only fills the first column.
 OR
 - four seperated lists of links with nesting. Each new list will become it's own column. You can have as many list items within a list as you need using this method. Note that this has been specifically designed for a maximum of four columns, using more than four lists is *not advised* and will result in wrapped columns.

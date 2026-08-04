@@ -42,10 +42,6 @@ export default class MegaMenuSection extends LitElement {
         this.addEventListener('keydown', this.handleWindowKeydown.bind(this));
     }
 
-    connectedCallback() {
-        super.connectedCallback();
-    }
-
     handleToggleClick(evt: Event) {
         this.expanded = !this.expanded;
         this.dispatchEvent(new CustomEvent('ilw-header-megamenu-section-expanded', {detail: !this.expanded, bubbles: true, composed: true}));
@@ -218,8 +214,6 @@ export default class MegaMenuSection extends LitElement {
         let isSubMenu = this.parentElement != null && this.parentElement.closest("ilw-header-megamenu-section") != null;
 
         this.current = this.current || (this.getAttribute('aria-current') != null && (this.getAttribute('aria-current') === 'page' || this.getAttribute('aria-current') === 'true'));
-        
-
 
         const isSoloList = this.classList.contains('solo-list');
 
@@ -228,11 +222,11 @@ export default class MegaMenuSection extends LitElement {
         return html`
             <div class="${isSubMenu ? 'submenu' : 'menu'} parent" @ilw-header-megamenu-section-expanded=${this.handleNavigationSectionToggleClick}>
                 <button class="${this.current ? "current" : ""}" @click=${this.handleToggleClick.bind(this)} aria-expanded=${this.expanded ? 'true' : 'false'} aria-controls="items">
-                <div class="header">
-                    <div class="label"><slot name="label"></slot> </div>
-                    <div class="icon">${this.renderArrow()}</div>
-                </div>
-            </button>
+                    <div class="header">
+                        <div class="label"><slot name="label"></slot> </div>
+                        <div class="icon">${this.renderArrow()}</div>
+                    </div>
+                </button>
                 <div id="items" class="${this.expanded ? 'expanded' : ''}">
                     ${needsWrapper
                         ? html`
