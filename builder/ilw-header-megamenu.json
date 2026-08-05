@@ -6,7 +6,7 @@
     "element-name": "ilw-header-megamenu",
     "description": "Mega Menu for the top of the page.",
     "purpose": "Build a mega menu navigation",
-    "toolkit-version": "",
-    "production-version": "",
+    "toolkit-version": "1.0.0",
+    "production-version": "1.0.0",
     "development-version": "latest"
 }
