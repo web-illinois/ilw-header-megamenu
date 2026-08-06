@@ -35,9 +35,3 @@ test("renders slotted navigation role", async () => {
     const element = screen.getByRole("navigation", {name: 'Header Menu Navigation'});
     await expect.element(element).toBeInTheDocument();
 });
-
-test("nav link name is not empty", async () => {
-  const screen = render(content);
-  const element = screen.getByRole("link").nth(0);
-  await expect.element(element).toHaveAccessibleName(expect.stringMatching(/.+/));
-});

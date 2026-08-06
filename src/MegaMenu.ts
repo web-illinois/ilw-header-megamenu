@@ -66,41 +66,53 @@ export default class MegaMenu extends LitElement {
         this.closeAllExceptOneSections(evt.target);
     }
 
-    gotoPreviousSection() {
-        let newNode: Element | null = null;
-        let activeElement = document.activeElement;
-        if (activeElement != null) {
-            if (activeElement.closest('li') && (activeElement.closest('li') as Element).previousElementSibling    ) {
-                const previousSibling = (activeElement.closest('li') as Element).previousElementSibling;
-                if (previousSibling && previousSibling.children.length > 0) {
-                    newNode = previousSibling.children[0];
-                }
-            }
-            if (newNode && newNode.tagName === 'ILW-HEADER-MEGAMENU-SECTION') {
-                (newNode as MegaMenuSection).setFocus(true);
-            } else {
-                (newNode as HTMLElement).focus();
-            }
-        }
-    }
+  gotoPreviousSection() {
+    const activeElement = document.activeElement;
+    if (!activeElement) return;
 
-    gotoNextSection() {
-        let newNode: Element | null = null;
-        let activeElement = document.activeElement;
-        if (activeElement != null) {
-            if (activeElement.closest('li') && (activeElement.closest('li') as Element).nextElementSibling) {
-                const nextSibling = (activeElement.closest('li') as Element).nextElementSibling;
-                if (nextSibling && nextSibling.children.length > 0) {
-                    newNode = nextSibling.children[0];
-                }
-            }
-            if (newNode && newNode.tagName === 'ILW-HEADER-MEGAMENU-SECTION') {
-                (newNode as MegaMenuSection).setFocus();
-            } else {
-                (newNode as HTMLElement).focus();
-            }
-        }
-    }
+    const currentSection = activeElement.closest(
+        'ilw-header-megamenu-section'
+    )
+
+    if (!currentSection) return;
+
+    const parentLi = currentSection.parentElement;
+    const previousLi = parentLi?.previousElementSibling;
+
+    if (!previousLi) return;
+
+    const previousSection = previousLi.querySelector(
+        'ilw-header-megamenu-section'
+    );
+
+    if (!previousSection) return;
+
+    previousSection.setFocus();
+}
+
+gotoNextSection() {
+    const activeElement = document.activeElement;
+    if (!activeElement) return;
+
+    const currentSection = activeElement.closest(
+        'ilw-header-megamenu-section'
+    );
+
+    if (!currentSection) return;
+
+    const parentLi = currentSection.parentElement;
+    const nextLi = parentLi?.nextElementSibling;
+
+    if (!nextLi) return;
+
+    const nextSection = nextLi.querySelector(
+        'ilw-header-megamenu-section'
+    );
+
+    if (!nextSection) return;
+
+    nextSection.setFocus();
+}
 
     handleWindowResize() {
         let currentWidth = this.offsetWidth == 0 ? window.innerWidth : this.offsetWidth;

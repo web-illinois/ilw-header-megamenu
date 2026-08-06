@@ -27,24 +27,10 @@ export default class MegaMenuSection extends LitElement {
     })
     mouseover = false;
 
-    @property({
-        reflect: true,
-        type: Boolean
-    })
-    linked = false;
-
     static get styles() {
         return unsafeCSS(styles);
     }
 
-    constructor() {
-        super();
-        this.addEventListener('keydown', this.handleWindowKeydown.bind(this));
-    }
-
-    connectedCallback() {
-        super.connectedCallback();
-    }
 
     handleToggleClick(evt: Event) {
         this.expanded = !this.expanded;
@@ -57,26 +43,6 @@ export default class MegaMenuSection extends LitElement {
             evt.preventDefault();
             this.moveToNextItem();
             this.closeAllExceptOneSections(evt.target);
-        }
-        else if (evt.key === 'ArrowRight' || evt.key === 'ArrowLeft') {
-            if (this.isOnAnchorInLinked() && evt.key === 'ArrowRight') {
-                evt.stopPropagation();
-                evt.preventDefault();
-                this.expanded = false;
-                this.setFocus(true);
-            } else if (this.isOnButtonInLinked() && evt.key === 'ArrowLeft') {
-                evt.stopPropagation();
-                evt.preventDefault();
-                this.expanded = false;
-                this.setFocus();
-            } else if (this.isOnButtonInLinked() && evt.key === 'ArrowRight') {
-                this.expanded = false;
-            } else if (this.isOnAnchorInLinked() && evt.key === 'ArrowLeft') {
-                this.expanded = false;
-            } else {
-                this.expanded = false;
-                this.setFocus();
-            }
         }
         else if (evt.key === 'ArrowUp') {
             evt.stopPropagation();
@@ -93,37 +59,18 @@ export default class MegaMenuSection extends LitElement {
         }
     }
 
-    isEmbedded() {
-        return this.parentElement && this.parentElement.closest('ilw-header-megamenu-section') != null;
-    }
 
-    isOnAnchorInLinked() {
-        return this.linked && document.activeElement && document.activeElement.tagName === 'A';
-    }
+   setFocus() {
+    const button = this.shadowRoot?.querySelector('button');
 
-    isOnButtonInLinked() {
-        return this.linked && document.activeElement && document.activeElement.tagName === 'ILW-HEADER-MEGAMENU-SECTION';
+    if (button) {
+        button.focus();
     }
-
-    setFocus(useButton: Boolean = false) {
-        let newNode: Element | null = null;
-        if (this.linked && !useButton) {
-            newNode = this.querySelector('a');
-        }
-        else if (this.shadowRoot) {
-            newNode = this.shadowRoot.querySelector('a');
-            if (newNode == null) {
-                newNode = this.shadowRoot.querySelector('button');
-            }
-        }
-        if (newNode != null) {
-            (newNode as HTMLElement).focus();
-        }
-    }
+}
 
 
     moveToNextItem() {
-        if (!this.expanded && !this.isEmbedded()) {
+        if (!this.expanded) {
             this.expanded = true;
         }
 
@@ -236,36 +183,21 @@ export default class MegaMenuSection extends LitElement {
         });
 
         let isSubMenu = this.parentElement != null && this.parentElement.closest("ilw-header-megamenu-section") != null;
-        let isSolo = this.parentElement != null && this.parentElement.closest("ilw-header-megamenu-section") != null;
 
         this.current = this.current || (this.getAttribute('aria-current') != null && (this.getAttribute('aria-current') === 'page' || this.getAttribute('aria-current') === 'true'));
-        
-        var withLink = html`
-            <div class="header-link ${this.mouseover ? "highlighted" : ""} ${this.compact ? "compact" : ""} ${this.current ? "current" : ""}" @mouseover="${this.toggleMouseOver.bind(this)}"  @mouseout="${this.toggleMouseOver.bind(this)}">
-                <slot name="link"></slot>
-                <button class="arrow-only" @click=${this.handleToggleClick.bind(this)} aria-expanded=${this.expanded ? 'true' : 'false'} aria-label=${this.querySelector('a[slot="link"]')?.textContent + ' submenu'} aria-controls="items">
-                    ${this.renderArrow()}
-                </button>
-            </div>
-        `;
-        
-        var withoutLink = html`
-            <button class="${this.current ? "current" : ""}" @click=${this.handleToggleClick.bind(this)} aria-expanded=${this.expanded ? 'true' : 'false'} aria-controls="items">
-                <div class="header">
-                    <div class="label"><slot name="label"></slot> </div>
-                    <div class="icon">${this.renderArrow()}</div>
-                </div>
-            </button>
-        `;
-
 
         const isSoloList = this.classList.contains('solo-list');
 
         const needsWrapper = !isSoloList;
         
         return html`
-            <div class="${isSubMenu ? 'submenu' : 'menu'} parent" @ilw-header-megamenu-section-expanded=${this.handleNavigationSectionToggleClick}>
-                ${this.linked ? withLink : withoutLink}
+            <div class="${isSubMenu ? 'submenu' : 'menu'} parent" @ilw-header-megamenu-section-expanded=${this.handleNavigationSectionToggleClick} @keydown=${this.handleWindowKeydown}>
+                <button class="${this.current ? "current" : ""}" @click=${this.handleToggleClick.bind(this)} aria-expanded=${this.expanded ? 'true' : 'false'} aria-controls="items">
+                    <div class="header">
+                        <div class="label"><slot name="label"></slot> </div>
+                        <div class="icon">${this.renderArrow()}</div>
+                    </div>
+                </button>
                 <div id="items" class="${this.expanded ? 'expanded' : ''}">
                     ${needsWrapper
                         ? html`
