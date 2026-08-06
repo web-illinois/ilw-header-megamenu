@@ -72,7 +72,7 @@ export default class MegaMenu extends LitElement {
 
     const currentSection = activeElement.closest(
         'ilw-header-megamenu-section'
-    )
+    ) || activeElement.closest('li a');
 
     if (!currentSection) return;
 
@@ -83,11 +83,15 @@ export default class MegaMenu extends LitElement {
 
     const previousSection = previousLi.querySelector(
         'ilw-header-megamenu-section'
-    );
+    ) || previousLi.querySelector('a');
 
     if (!previousSection) return;
 
-    previousSection.setFocus();
+    if ('setFocus' in previousSection) {
+        (previousSection as MegaMenuSection).setFocus();
+    } else {
+        (previousSection as HTMLAnchorElement).focus();
+    }
 }
 
 gotoNextSection() {
@@ -96,7 +100,7 @@ gotoNextSection() {
 
     const currentSection = activeElement.closest(
         'ilw-header-megamenu-section'
-    );
+    ) || activeElement.closest('li a');
 
     if (!currentSection) return;
 
@@ -107,11 +111,15 @@ gotoNextSection() {
 
     const nextSection = nextLi.querySelector(
         'ilw-header-megamenu-section'
-    );
+    ) || nextLi.querySelector('a');
 
     if (!nextSection) return;
 
-    nextSection.setFocus();
+    if ('setFocus' in nextSection) {
+        (nextSection as MegaMenuSection).setFocus();
+    } else {
+        (nextSection as HTMLAnchorElement).focus();
+    }
 }
 
     handleWindowResize() {

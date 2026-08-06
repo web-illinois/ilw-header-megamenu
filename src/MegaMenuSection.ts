@@ -61,10 +61,10 @@ export default class MegaMenuSection extends LitElement {
 
 
    setFocus() {
-    const button = this.shadowRoot?.querySelector('button');
+    const element = this.shadowRoot?.querySelector('button, a') as HTMLElement | null;
 
-    if (button) {
-        button.focus();
+    if (element) {
+        element.focus();
     }
 }
 
