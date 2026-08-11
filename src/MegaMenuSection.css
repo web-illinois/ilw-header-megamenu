@@ -135,6 +135,15 @@ ilw-header-megamenu-section {
         }
     }
 
+    li>img,
+    ul li:nth-child(n+21) {
+        display: none
+    }
+
+    .no-border {
+        border: none;
+    }
+
 }
 
 
@@ -220,14 +229,4 @@ ilw-header-megamenu[compact] ilw-header-megamenu-section ilw-header-megamenu-sec
     ul button {
         --ilw-header-megamenu-section--anchor--text-indent: 40px;
     }
-}
-
-ul>img,
-li>img,
-ul li:nth-child(n+21) {
-    display: none
-}
-
-.no-border {
-    border: none;
 }
