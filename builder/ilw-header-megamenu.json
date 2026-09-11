@@ -1,12 +1,21 @@
 {
-    "title": "Header Mega Menu",
-    "tag": "ilw-header-megamenu",
-    "github": "https://github.com/web-illinois/ilw-header-megamenu/",
-    "type": "web component",
-    "element-name": "ilw-header-megamenu",
-    "description": "Mega Menu for the top of the page.",
-    "purpose": "Build a mega menu navigation",
-    "toolkit-version": "1.0.1",
-    "production-version": "1.0.1",
-    "development-version": "latest"
+  "title": "Header Mega Menu",
+  "id": "ilw-header-megamenu",
+  "type": "Web Component",
+  "repository-name": "ilw-header-megamenu",
+  "description": "Build a spacious, multi-column navigation menu for sites with many top-level links and grouped destinations.",
+  "purpose": "Build a mega menu navigation",
+  "customtemplates": [],
+  "versions": [
+    {
+      "name": "1.0",
+      "notes": "",
+      "template": "1.0"
+    },
+    {
+      "name": "1.0.1",
+      "notes": "",
+      "template": "1.0"
+    }
+  ]
 }
