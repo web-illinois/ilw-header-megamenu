@@ -47,7 +47,7 @@ Optional action-left and action-right slots can contain:
           <ilw-header-megamenu-section class="solo-list">
             <span slot="label">Single Unordered List</span>
             <ul>
-              <li><a href="/">Undergrad Admissions</a></li>
+              <li><a href="/">Web Implementation Guidelines Group</a></li>
               <li><a href="/">Graduate Admissions</a></li>
               <li><a href="/">International Admissions</a></li>
               <li><a href="/">Degrees</a></li>
