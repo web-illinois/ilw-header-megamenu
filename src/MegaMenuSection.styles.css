@@ -202,8 +202,10 @@ div.list-wrapper {
   overflow: hidden;
 }
 
-:host-context(ilw-header-megamenu[compact]) .list-wrapper {
-  all: unset;
+@media (max-width: 989px) {
+  div.list-wrapper {
+    all: unset;
+  }
 }
 
 ::slotted(ul:last-of-type) {
