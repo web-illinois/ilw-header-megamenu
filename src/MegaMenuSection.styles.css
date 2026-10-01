@@ -188,10 +188,7 @@ button[aria-expanded="true"] {
 /* make single ul list */
 
 :host(.solo-list) ::slotted(ul) {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 320px));
-  grid-template-rows: repeat(5, 34px);
-  grid-auto-flow: column;
+  columns: 4;
   max-width: 100vw;
 }
 
