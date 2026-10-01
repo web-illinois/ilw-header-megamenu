@@ -189,6 +189,7 @@ button[aria-expanded="true"] {
 
 :host(.solo-list) ::slotted(ul) {
   columns: 4;
+  break-inside: avoid;
   max-width: 100vw;
 }
 
