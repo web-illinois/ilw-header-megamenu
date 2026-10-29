@@ -144,6 +144,18 @@ export default class MegaMenuSection extends LitElement {
         return slot.assignedNodes({ flatten: true }).length > 0;
         }
 
+    private limitSoloListItems = (event: Event) => {
+        const slot = event.currentTarget as HTMLSlotElement;
+        const items = slot.assignedElements({ flatten: true })
+            .filter((element): element is HTMLUListElement => element instanceof HTMLUListElement)
+            .flatMap(ul => Array.from(ul.children)
+                .filter((child): child is HTMLLIElement => child instanceof HTMLLIElement));
+
+        items.slice(20).forEach(item => {
+            item.hidden = true;
+        });
+    }
+
     render() {
         const actionSpan = this.querySelector('span[slot="action-left"], span[slot="action-right"]');
         let actionId: string | null = null;
@@ -207,7 +219,7 @@ export default class MegaMenuSection extends LitElement {
                                 <slot name="action-right"></slot>
                             </div>
                             `
-                        :  html`<slot id="list-slot"></slot>`}
+                        :  html`<slot id="list-slot" @slotchange=${this.limitSoloListItems}></slot>`}
                 </div>
             </div>
         `;

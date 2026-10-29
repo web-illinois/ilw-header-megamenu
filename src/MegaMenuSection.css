@@ -135,8 +135,7 @@ ilw-header-megamenu-section {
         }
     }
 
-    li>img,
-    ul li:nth-child(n+21) {
+    li>img {
         display: none
     }
 
