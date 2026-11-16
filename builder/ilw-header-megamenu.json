@@ -13,8 +13,8 @@
       "template": "1.0"
     },
     {
-      "name": "1.0.1",
-      "notes": "",
+      "name": "1.0.2",
+      "notes": "The 1.0.2 release includes minor updates and fixes for long link titles layouts and browser compatibility.",
       "template": "1.0"
     }
   ]
